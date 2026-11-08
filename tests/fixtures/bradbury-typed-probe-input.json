@@ -1,0 +1,1080 @@
+{
+  "negative": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 错误修饰符声明",
+      "report_version": "v1",
+      "report_body": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。",
+          "evidence_indices": [
+            0
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "positive": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "strictUnknown": {
+    "spec": {
+      "client_ref": "3980556b-7d46-48f0-8b3d-73d76674cd16",
+      "title": "默认基类源码审查 · Ownable + Context · 审计事实必须有据",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "falseCautionOtherSource": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "在本次提交的所有材料中，_msgSender()是否返回msg.sender仍然未知。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "在本次提交的所有材料中，_msgSender()是否返回msg.sender仍然未知。",
+          "evidence_indices": [
+            0
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "unknownWithPromise": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交的材料范围内，某未提供源码或部署地址的外部协议的提现机制未知，因此该协议用户能够随时即时退出。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "在本次提交的材料范围内，某未提供源码或部署地址的外部协议的提现机制未知，因此该协议用户能够随时即时退出。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "contradictionWithUnknown": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。其余权限未知。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。其余权限未知。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "boundaryIncomplete": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告有局限性。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告有局限性。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "falsePermissionsAsBoundary": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  },
+  "unknownAsFactual": {
+    "spec": {
+      "client_ref": "654b3e02-6178-47aa-a7a5-7def98bca6df",
+      "title": "默认基类源码审查 · Ownable + Context",
+      "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+      "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+      "as_of": "2026-11-05",
+      "author": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+      "allowed_hosts": [
+        "raw.githubusercontent.com"
+      ],
+      "source_roots": [
+        "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+      ],
+      "criteria": [
+        {
+          "id": "permissions",
+          "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "withdrawals",
+          "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "audit",
+          "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。",
+          "required": true,
+          "evidence_requirement": "scoped_unknown_allowed",
+          "verification_kind": "evidence_review",
+          "allowed_claim_types": [
+            "factual_assertion",
+            "unknown_disclosure"
+          ]
+        },
+        {
+          "id": "limitations",
+          "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+          "required": true,
+          "evidence_requirement": "fact_required",
+          "verification_kind": "boundary_review",
+          "allowed_claim_types": [
+            "boundary_disclosure"
+          ]
+        }
+      ]
+    },
+    "submission": {
+      "report_title": "默认未重写基类审查 · 修订稿",
+      "report_version": "v2",
+      "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。\n本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+          "byte_length": 3102
+        },
+        {
+          "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+          "byte_length": 860
+        }
+      ],
+      "claims": [
+        {
+          "criterion_id": "permissions",
+          "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "withdrawals",
+          "statement": "本次提交的Ownable与Context源码均未提供具体协议的提现或赎回流程证据，因此提现等待期和能否即时退出在本次证据范围内未知，不作即时提现承诺。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "unknown_disclosure"
+        },
+        {
+          "criterion_id": "audit",
+          "statement": "本次提交的Ownable与Context两份固定commit源码都不是审计报告；本次材料未提供审计覆盖范围或版本的证据，审计状态在本次证据范围内未知，不宣称任何部署已通过安全审计。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "factual_assertion"
+        },
+        {
+          "criterion_id": "limitations",
+          "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+          "evidence_indices": [
+            0,
+            1
+          ],
+          "claim_type": "boundary_disclosure"
+        }
+      ]
+    },
+    "materials": [
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\n\npragma solidity ^0.8.20;\n\nimport {Context} from \"../utils/Context.sol\";\n\n/**\n * @dev Contract module which provides a basic access control mechanism, where\n * there is an account (an owner) that can be granted exclusive access to\n * specific functions.\n *\n * The initial owner is set to the address provided by the deployer. This can\n * later be changed with {transferOwnership}.\n *\n * This module is used through inheritance. It will make available the modifier\n * `onlyOwner`, which can be applied to your functions to restrict their use to\n * the owner.\n */\nabstract contract Ownable is Context {\n    address private _owner;\n\n    /**\n     * @dev The caller account is not authorized to perform an operation.\n     */\n    error OwnableUnauthorizedAccount(address account);\n\n    /**\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\n     */\n    error OwnableInvalidOwner(address owner);\n\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\n\n    /**\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\n     */\n    constructor(address initialOwner) {\n        if (initialOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(initialOwner);\n    }\n\n    /**\n     * @dev Throws if called by any account other than the owner.\n     */\n    modifier onlyOwner() {\n        _checkOwner();\n        _;\n    }\n\n    /**\n     * @dev Returns the address of the current owner.\n     */\n    function owner() public view virtual returns (address) {\n        return _owner;\n    }\n\n    /**\n     * @dev Throws if the sender is not the owner.\n     */\n    function _checkOwner() internal view virtual {\n        if (owner() != _msgSender()) {\n            revert OwnableUnauthorizedAccount(_msgSender());\n        }\n    }\n\n    /**\n     * @dev Leaves the contract without owner. It will not be possible to call\n     * `onlyOwner` functions. Can only be called by the current owner.\n     *\n     * NOTE: Renouncing ownership will leave the contract without an owner,\n     * thereby disabling any functionality that is only available to the owner.\n     */\n    function renounceOwnership() public virtual onlyOwner {\n        _transferOwnership(address(0));\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Can only be called by the current owner.\n     */\n    function transferOwnership(address newOwner) public virtual onlyOwner {\n        if (newOwner == address(0)) {\n            revert OwnableInvalidOwner(address(0));\n        }\n        _transferOwnership(newOwner);\n    }\n\n    /**\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\n     * Internal function without access restriction.\n     */\n    function _transferOwnership(address newOwner) internal virtual {\n        address oldOwner = _owner;\n        _owner = newOwner;\n        emit OwnershipTransferred(oldOwner, newOwner);\n    }\n}\n",
+      "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/Context.sol)\n\npragma solidity ^0.8.20;\n\n/**\n * @dev Provides information about the current execution context, including the\n * sender of the transaction and its data. While these are generally available\n * via msg.sender and msg.data, they should not be accessed in such a direct\n * manner, since when dealing with meta-transactions the account sending and\n * paying for execution may not be the actual sender (as far as an application\n * is concerned).\n *\n * This contract is only required for intermediate, library-like contracts.\n */\nabstract contract Context {\n    function _msgSender() internal view virtual returns (address) {\n        return msg.sender;\n    }\n\n    function _msgData() internal view virtual returns (bytes calldata) {\n        return msg.data;\n    }\n}\n"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "algorithm": "python-ast-local-alpha-docstring-strip-minimal-whitespace/2",
+  "algorithm_dependency_file": "scripts/generate-compact-probe.py",
+  "algorithm_dependency_sha256": "582aed2ebb3aa8551fc806fe44d28ab2920e242baee56266d83bbe545fd0ef04",
+  "alpha_ast_sha256": "b35ee23584b6c4be10a490d02632dca4c82fcd8f5684df2c2d95a5d8d4e142b6",
+  "alpha_normalized_ast_type_comments_equal": true,
+  "artifact_test_file": "tests/python/test_v6_compact_v2.py",
+  "artifact_test_sha256": "f87ae765167a20de3daa2aff64e72c6689a693d5d429e2d4416f26190a01a761",
+  "bradbury_estimable_ceiling_bytes": 38895,
+  "dependency_check": {
+    "scope": "Static explicit name/import/attribute check, not a general runtime equivalence proof",
+    "source_line_introspection_dependency_hits": []
+  },
+  "full_ast_type_comments_equal": false,
+  "module_and_class_surface_identical": true,
+  "no_transport_success_claim": true,
+  "ordered_non_docstring_constants_sha256": "9b6189ea86c9174b00d5c442f830d22161ab85f8dd5d5d312b39c0f54ffe7885",
+  "ordered_non_docstring_str_bytes_values_and_utf8_bytes_equal": true,
+  "ordered_str_bytes_values_and_utf8_bytes_equal": false,
+  "original_verbatim_source_assertion": "INAPPLICABLE to compact_v2 formatting; replaced by lexical-scope alpha-normalized AST, ordered non-docstring constants, identical module/class surface, and behavioral equivalence tests",
+  "output_bytes": 35916,
+  "output_docstring_count": 0,
+  "output_file": "contracts/research_receipt_v6_compact_v2.py",
+  "output_sha256": "2af33b26424a8bc2399d71cdb6a2ccdbd53acb0e4fc06de1ede14bb7791e42e2",
+  "python_implementation": "CPython",
+  "python_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "runner_first_two_lines_bytes_identical": true,
+  "source_bytes": 49894,
+  "source_file": "contracts/research_receipt_v6_candidate.py",
+  "source_sha256": "9cff3a90a45daee031bf3fb893857bcb53cb07bc6501b86fecc955ce021b4a19",
+  "stripped_docstring_count": 6,
+  "stripped_docstrings": [
+    {
+      "qualname": "<module>",
+      "sha256": "1c283520d9a6a562d51cc1247cedc00a7100266ec2c39ade915dbdf120147b36",
+      "utf8_byte_length": 231
+    },
+    {
+      "qualname": "content_fingerprint",
+      "sha256": "e770b426c8977659f9f21775c96dcefc2aa3d836bc7598a1f5ed6b358b242504",
+      "utf8_byte_length": 306
+    },
+    {
+      "qualname": "delivery_status",
+      "sha256": "7aff94c2684a6fb261d1f11fd3ac54240e69b007e104ec893db8527b058fd886",
+      "utf8_byte_length": 73
+    },
+    {
+      "qualname": "fetch_evidence",
+      "sha256": "db49976f8148e1c6508f45ca64f1069870d2c778322686d62a3b5b1095662dec",
+      "utf8_byte_length": 68
+    },
+    {
+      "qualname": "independent_assessment",
+      "sha256": "d6f6af4caa782c2985a1921674ecc6468e7aa78e151a4661da6848677e6b34be",
+      "utf8_byte_length": 71
+    },
+    {
+      "qualname": "validate_assessment",
+      "sha256": "7a019a2c0618efaf60100aaccb20cca2b3ee051512af0e16540cb60f496d4733",
+      "utf8_byte_length": 73
+    }
+  ],
+  "tool_file": "scripts/generate-v6-compact-v2.py",
+  "tool_sha256": "e4741856d62a70c0bcf451b8342f856e5cb0b2454ae2f699519f518051eee970",
+  "verification": {
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/python",
+      "-p",
+      "test_v6_compact_v2.py"
+    ],
+    "executed": true,
+    "exit_code": 0,
+    "scope": "Offline stubs only; no real model, RPC, signature, or consensus proof",
+    "stderr": "........................................\n----------------------------------------------------------------------\nRan 40 tests in 0.571s\n\nOK\n",
+    "stdout": ""
+  }
+}

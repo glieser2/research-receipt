@@ -1,0 +1,10 @@
+{
+  "format": "research-receipt/development-fee-profile/1",
+  "network": "studio-dev",
+  "scope": "Conservative capped development allocation; current prices are quoted by the SDK. Not a production worst-case certification.",
+  "methods": ["create_order", "submit_revision", "evaluate"],
+  "leaderTimeunitsAllocation": "600",
+  "validatorTimeunitsAllocation": "600",
+  "executionBudgetPerRound": "10000000000000000",
+  "appealRounds": "0"
+}

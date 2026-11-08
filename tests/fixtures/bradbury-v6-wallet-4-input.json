@@ -1,0 +1,1537 @@
+{
+  "format": "research-receipt/v6-business-input/1",
+  "policyVersion": "research-receipt/6",
+  "actors": {
+    "owner": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "author": "0x6a1f0a11003b197f192961b006a9e6534b447f75",
+    "outsider": "0x2d13e8caee0a0fdff8cf45026c563843826a18b7"
+  },
+  "orderIds": {
+    "correction": 1,
+    "badHash": 2,
+    "authorOther": 3,
+    "strictAudit": 4,
+    "falseCaution": 5,
+    "unsupportedPromise": 6,
+    "boundaryIncomplete": 7,
+    "optionalRevision": 8,
+    "sixValid": 9
+  },
+  "correctionSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "83ce93a0-92dd-431b-84bb-0f846ecfd0c8",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "badHashSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "c43f50ea-420f-439d-85ad-0ff3df538e7a",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "authorOtherSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x6a1f0a11003b197f192961b006a9e6534b447f75",
+    "client_ref": "2d57bc8c-c6e1-44fa-924d-4baccdf51390",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "strictAuditSpec": {
+    "title": "默认基类源码审查 · Ownable + Context · 审计事实必须有据",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "eddbe372-e27a-4dd5-afa0-6342dad5e421",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "falseCautionSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "7405f67b-1b84-4c3e-904b-5dae9f6ba70c",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认调用者地址：What value does the default Context._msgSender() implementation return?",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_context_sender"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "unsupportedPromiseSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "a3cf0522-5079-45b8-806e-372a3da3c6fc",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "boundaryIncompleteSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "f1ad3cc4-f6cb-4e65-8bff-cfc25f0a1c4b",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "optionalRevisionSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "e297c14f-67fa-4262-9295-ac85f81d379a",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      },
+      {
+        "id": "license_marker",
+        "text": "State the SPDX license identifier declared in committed source 0.",
+        "required": false,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion"
+        ],
+        "requested_field_ids": []
+      },
+      {
+        "id": "context_return",
+        "text": "State the return value of the default Context._msgSender() implementation in committed source 1.",
+        "required": false,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "sixValidSpec": {
+    "title": "默认基类源码审查 · Ownable + Context",
+    "protocol": "OpenZeppelin Ownable + Context (pinned default implementations)",
+    "chain": "EVM source only; excludes derived overrides, proxies and deployed instances",
+    "as_of": "2026-11-05",
+    "author": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "client_ref": "daf22cab-be04-43a8-980c-4dcc4376761f",
+    "catalog_version": "research-receipt/field-catalog/1",
+    "allowed_hosts": [
+      "raw.githubusercontent.com"
+    ],
+    "source_roots": [
+      "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+    ],
+    "criteria": [
+      {
+        "id": "permissions",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n默认所有者权限检查：What owner-only authorization checks do the default Ownable transferOwnership and renounceOwnership functions define?\n默认调用者地址：What value does the default Context._msgSender() implementation return?\n默认升级入口：Do these two default source files themselves define an upgrade entry or upgrade administrator? An established source-level absence is an answer; do not infer deployed or derived behavior.",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "default_ownable_controls",
+          "default_context_sender",
+          "default_upgrade_entry"
+        ]
+      },
+      {
+        "id": "withdrawals",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n提现等待期：What waiting period applies to asset withdrawal/redemption in a concrete external protocol? Absence of withdrawal logic in these base files is not an answer about an external protocol.\n即时退出条件：Under what conditions can users exit a concrete external protocol immediately? Absence of exit logic in these base files is not evidence that immediate exit is possible.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "withdrawal_waiting_period",
+          "instant_exit_conditions"
+        ]
+      },
+      {
+        "id": "audit",
+        "text": "请回答以下已锁定问题；材料不足时按锁定规则披露未知：\n审计覆盖范围：What audit coverage is established for the reviewed code or protocol by these materials? Merely observing that no audit report was submitted is not an audit-coverage answer.\n审计覆盖版本：What exact version/commit is established as covered by an audit? A source-file commit alone does not establish an audited version.",
+        "required": true,
+        "evidence_requirement": "scoped_unknown_allowed",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion",
+          "unknown_disclosure"
+        ],
+        "requested_field_ids": [
+          "audit_coverage",
+          "audit_version"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "明确研究只覆盖提交的固定commit源码；列出未覆盖的派生重写、代理和实际部署状态，不把本报告当作协议整体安全或未来收益保证。",
+        "required": true,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "boundary_review",
+        "allowed_claim_types": [
+          "boundary_disclosure"
+        ],
+        "requested_field_ids": []
+      },
+      {
+        "id": "license_marker",
+        "text": "State the SPDX license identifier declared in committed source 0.",
+        "required": false,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion"
+        ],
+        "requested_field_ids": []
+      },
+      {
+        "id": "context_return",
+        "text": "State the return value of the default Context._msgSender() implementation in committed source 1.",
+        "required": false,
+        "evidence_requirement": "fact_required",
+        "verification_kind": "evidence_review",
+        "allowed_claim_types": [
+          "factual_assertion"
+        ],
+        "requested_field_ids": []
+      }
+    ]
+  },
+  "correctionNegative": {
+    "report_title": "默认未重写基类审查 · 错误修饰符声明",
+    "report_body": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-negative-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。",
+        "evidence_indices": [
+          0
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "correctionPositive": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-positive-2",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "replaySameContent": {
+    "report_title": "默认未重写基类审查 · 错误修饰符声明",
+    "report_body": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-replay-label-only",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论固定commit中默认、未重写的Ownable源码：transferOwnership与renounceOwnership的声明均没有onlyOwner修饰符，_checkOwner也不会比较owner()与_msgSender()。",
+        "evidence_indices": [
+          0
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "revisionAfterAccepted": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-post-accept",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "badHashSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-badHash-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "authorOtherSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-authorOther-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "strictAuditSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-strictAudit-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "falseCautionSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：默认调用者地址。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-falseCaution-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "permissions",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "unsupportedPromiseSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交的材料范围内，某未提供源码或部署地址的外部协议的提现机制未知，因此该协议用户能够随时即时退出。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-unsupportedPromise-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "criterion_id": "withdrawals",
+        "claim_type": "factual_assertion",
+        "statement": "在本次提交的材料范围内，某未提供源码或部署地址的外部协议的提现机制未知，因此该协议用户能够随时即时退出。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "boundaryIncompleteSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告有局限性。",
+    "report_version": "v6-boundaryIncomplete-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告有局限性。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "optionalUnsupportedSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。\nCommitted source 0 declares SPDX-License-Identifier: MIT, and users can exit immediately without any waiting or restrictions.",
+    "report_version": "v6-optional-unsupported-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "criterion_id": "license_marker",
+        "claim_type": "factual_assertion",
+        "statement": "Committed source 0 declares SPDX-License-Identifier: MIT, and users can exit immediately without any waiting or restrictions.",
+        "evidence_indices": [
+          0
+        ]
+      }
+    ]
+  },
+  "optionalOmittedSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-optional-omitted-2",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "sixValidSubmission": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。\nCommitted source 0 declares SPDX-License-Identifier: MIT.\nIn the default Context source, _msgSender() returns msg.sender.",
+    "report_version": "v6-six-valid-1",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "criterion_id": "license_marker",
+        "claim_type": "factual_assertion",
+        "statement": "Committed source 0 declares SPDX-License-Identifier: MIT.",
+        "evidence_indices": [
+          0
+        ]
+      },
+      {
+        "criterion_id": "context_return",
+        "claim_type": "factual_assertion",
+        "statement": "In the default Context source, _msgSender() returns msg.sender.",
+        "evidence_indices": [
+          1
+        ]
+      }
+    ]
+  },
+  "legacyUnknownWithPromise": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-guard-legacy",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "criterion_id": "withdrawals",
+        "statement": "在本次提交的材料范围内，某未提供源码或部署地址的外部协议的提现机制未知，因此该协议用户能够随时即时退出。",
+        "evidence_indices": [
+          0,
+          1
+        ],
+        "claim_type": "unknown_disclosure"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "wrongPermissionsAsBoundary": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+    "report_version": "v6-guard-type",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "boundary_disclosure",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "unboundBodyPromise": {
+    "report_title": "默认未重写基类审查 · 修订稿",
+    "report_body": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：提现等待期、即时退出条件。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n在本次提交并锁定的全部来源材料中，以下买方指定字段尚未建立答案：审计覆盖范围、审计覆盖版本。这些字段仅在本次材料范围内记为未知；本披露不构成即时退出、安全或收益保证。\n本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。 Immediate exit and returns are guaranteed.",
+    "report_version": "v6-guard-body",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "byte_length": 3102
+      },
+      {
+        "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+        "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+        "byte_length": 860
+      }
+    ],
+    "claims": [
+      {
+        "criterion_id": "permissions",
+        "claim_type": "factual_assertion",
+        "statement": "仅讨论本次两份固定commit基类源码的默认、未重写实现：Ownable的transferOwnership与renounceOwnership声明都带onlyOwner，_checkOwner在owner()!=_msgSender()时回退；Context的默认_msgSender()返回msg.sender。这两份文件本身均未定义代码升级入口或升级管理员机制；本项只核查这些源文件中的默认权限检查与升级入口，不覆盖任意派生重写、代理或实际部署的权限。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "withdrawals",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "claim_type": "unknown_disclosure",
+        "criterion_id": "audit",
+        "disclosure_version": "scoped-unknown/1",
+        "scope": "all_committed_sources"
+      },
+      {
+        "criterion_id": "limitations",
+        "claim_type": "boundary_disclosure",
+        "statement": "本报告只核查本次提交的固定commit版Ownable与Context默认基类源码及逐项陈述；不覆盖派生重写、代理或实际部署状态，也不把本报告当作协议整体安全或未来收益保证。",
+        "evidence_indices": [
+          0,
+          1
+        ]
+      }
+    ]
+  }
+}
