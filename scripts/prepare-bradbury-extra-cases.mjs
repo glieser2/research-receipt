@@ -1,0 +1,15 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
+const sessionFile = process.env.RR_E2E_SESSION;
+if (!/^artifacts\/bradbury\/session-[0-9a-z]+\.json$/.test(sessionFile || '')) throw new Error('Set RR_E2E_SESSION to the public session metadata file under artifacts/bradbury.');
+const inputFile = process.env.RR_E2E_INPUT || 'artifacts/bradbury/e2e-input.json';
+const outputFile = process.env.RR_E2E_EXTRA_OUTPUT || 'artifacts/bradbury/extra-cases.json';
+for (const file of [inputFile, outputFile]) if (!/^artifacts\/bradbury\/[A-Za-z0-9_.-]+\.json$/.test(file)) throw new Error('Fixture paths must remain under artifacts/bradbury.');
+const state = JSON.parse(await readFile(sessionFile, 'utf8'));
+const base = JSON.parse(await readFile(inputFile, 'utf8'));
+if (base.spec.author.toLowerCase() !== state.actors.owner.toLowerCase()) throw new Error('Expected isolated owner/author main scenario');
+const replay = structuredClone(base.missing);
+replay.report_title += ' · renamed replay'; replay.report_version = 'v2';
+const permissionSpec = { ...base.spec, client_ref: randomUUID(), title: '公开链权限负例 · 锁定其他作者', author: state.actors.author };
+await writeFile(outputFile, JSON.stringify({ replay, permissionSpec, positive: base.positive }, null, 2) + '\n', { flag: 'wx' });
+console.log(JSON.stringify({ ready: true, permissionClientRef: permissionSpec.client_ref, author: permissionSpec.author }));

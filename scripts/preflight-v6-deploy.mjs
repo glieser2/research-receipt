@@ -1,0 +1,61 @@
+// Frozen V6 zero-argument deployment preflight. No account, signature or send.
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {encodeFunctionData,decodeFunctionData} from 'viem';
+import {connectBradbury,quoteDevelopmentProfile,publicJson,BRADBURY} from './bradbury-client.mjs';
+import {abi,decodeInputData} from 'genlayer-js';
+import {sha256} from './probe-public-codec.mjs';
+import {summarizeRevert} from './diagnose-deploy-gas.mjs';
+assert.ok(process.argv.includes('--run'));
+const canonical=v=>Array.isArray(v)?'['+v.map(canonical).join(',')+']':v&&typeof v==='object'?'{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}':JSON.stringify(v);
+const planBytes=await readFile('docs/evidence/v6-validation-plan.json'),p=JSON.parse(planBytes);
+assert.equal(sha256(planBytes),'c731fb736abc2bf2c70e48d5a72cd1e72195a0bc25aa50070d7a9a28564b506e');
+assert.equal(p.mode,'prepared');assert.equal(p.requiredSignedCaseCount,51);assert.equal(p.policyVersion,'research-receipt/6');
+const original=await readFile(p.sourceCommitment.file),deployed=await readFile(p.deploymentSourceCommitment.file);
+for(const commitment of [p.sourceCommitment,p.deploymentSourceCommitment,p.catalogCommitment,p.buildCommitment,p.feeProfileCommitment])assert.equal(sha256(await readFile(commitment.file)),commitment.sha256);
+assert.equal(sha256(await readFile(p.fixtureFile)),p.fixtureSha256);assert.equal(sha256(await readFile(p.publicFixtureFile)),p.fixtureSha256);
+await mkdir('artifacts/bradbury/v6',{recursive:true});
+const file='artifacts/bradbury/v6/deployment-preflight-v2.json';
+const previous=JSON.parse(await readFile('artifacts/bradbury/v6/deployment-preflight.json'));
+assert.equal(previous.estimateCallsStarted,0,'Never repeat a completed or attempted estimate');
+assert.equal(previous.sourceSha256,p.deploymentSourceCommitment.sha256);
+function deploymentData(code,args){
+ assert.deepEqual(args,[]);
+ const data=abi.transactions.serialize([code,abi.calldata.encode(abi.calldata.makeCalldataObject(undefined,args)),false]);
+ const decoded=decodeInputData(data,'0x0000000000000000000000000000000000000000');
+ assert.equal(decoded.type,'deploy');assert.equal(decoded.code,code);assert.equal(decoded.leaderOnly,false);
+ const ctor=decoded.constructorArgs instanceof Map?Object.fromEntries(decoded.constructorArgs):decoded.constructorArgs;
+ assert.deepEqual(ctor,{},'SDK encodes an empty constructor as the empty calldata object');
+ return data;
+}
+const report={format:'research-receipt/v6-deployment-preflight/1',startedAt:new Date().toISOString(),planSha256:sha256(planBytes),canonicalSourceSha256:p.sourceCommitment.sha256,sourceSha256:p.deploymentSourceCommitment.sha256,sourceBytes:deployed.length,constructorArgs:[],schemaCallsStarted:0,estimateCallsStarted:0,signatures:0,chainTransactionsSent:0,modelCalls:0};
+await writeFile(file,publicJson(report)+'\n',{flag:'wx'});const save=()=>writeFile(file,publicJson(report)+'\n');
+try{
+ const c=await connectBradbury();report.network=c.metadata;
+ const owner=p.actorCommitment.actors.owner;
+ const session=JSON.parse(await readFile('artifacts/bradbury/session-'+owner.toLowerCase()+'.json'));
+ assert.equal(session.sessionAddress.toLowerCase(),owner.toLowerCase());assert.ok(Array.isArray(session.transactions));
+ assert.equal(session.transactions.filter(x=>x.sourceSha256===report.sourceSha256).length,0,'A known deployment already exists; do not preflight another submission');
+ const [latest,pending,balance]=await Promise.all([c.publicClient.getTransactionCount({address:owner,blockTag:'latest'}),c.publicClient.getTransactionCount({address:owner,blockTag:'pending'}),c.client.getBalance({address:owner})]);
+ report.actor=owner;report.latestNonce=latest;report.pendingNonce=pending;report.balanceWei=String(balance);assert.equal(latest,pending,'Resolve a pending envelope before any deployment');
+ report.schemaCallsStarted=2;await save();
+ const schemas=await Promise.allSettled([c.client.getContractSchemaForCode(original.toString('utf8')),c.client.getContractSchemaForCode(deployed.toString('utf8'))]);
+ report.schemas=schemas.map(s=>s.status==='fulfilled'?{status:'fulfilled',value:s.value}:{status:'rejected',errorName:s.reason?.name||'ERROR'});await save();
+ assert.ok(schemas.every(s=>s.status==='fulfilled'),'Official schema request failed');assert.equal(canonical(schemas[0].value),canonical(schemas[1].value),'Canonical/actual official schemas differ');
+ assert.equal(schemas[1].value.ctor.params.length,0,'Deployment must have no constructor input');report.schemasExactlyEqual=true;
+ const {quote}=await quoteDevelopmentProfile(c.client);assert.ok(BigInt(balance)>quote.feeValue,'Test GEN must cover deposit and gas');
+ const params={sender:owner,recipient:'0x0000000000000000000000000000000000000000',numOfInitialValidators:BigInt(c.chain.defaultNumberOfInitialValidators),maxRotations:BigInt(c.chain.defaultConsensusMaxRotations),validUntil:BigInt(Math.floor(Date.now()/1000)+3600),saltNonce:0n,userValue:0n,feesDistribution:quote.distribution,txCalldata:deploymentData(deployed.toString('utf8'),[]),messageAllocations:[]};
+ const data=encodeFunctionData({abi:c.chain.consensusMainContract.abi,functionName:'addTransaction',args:[params]});
+ const decoded=decodeFunctionData({abi:c.chain.consensusMainContract.abi,data});assert.equal(decoded.functionName,'addTransaction');assert.equal(decoded.args[0].txCalldata,params.txCalldata);
+ assert.equal(encodeFunctionData({abi:c.chain.consensusMainContract.abi,functionName:'addTransaction',args:decoded.args}),data);
+ const request={from:owner,to:c.metadata.addresses.ConsensusMain,data,value:'0x'+quote.feeValue.toString(16)};
+ report.unsignedRequest={request,params,quote,gasOverride:false,dataSha256:sha256(data),abiRoundTripExact:true,mode:'fresh-sdk-equivalent-zero-argument-v6'};
+ report.estimateCallsStarted=1;await save();
+ const response=await fetch(BRADBURY.rpcUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_estimateGas',params:[request]}),signal:AbortSignal.timeout(30000)});
+ report.estimateResponse={httpStatus:response.status,response:await response.json()};const value=report.estimateResponse.response.result;
+ report.estimateSucceeded=response.ok&&!report.estimateResponse.response.error&&typeof value==='string'&&/^0x[0-9a-f]+$/i.test(value)&&BigInt(value)>0n;
+ if(report.estimateSucceeded)report.estimatedGas=String(BigInt(value));else report.revert=summarizeRevert(report.estimateResponse.response.error);
+ report.preflightPassed=report.schemasExactlyEqual&&report.estimateSucceeded;
+}catch(error){report.preflightPassed=false;report.error={name:error.name,category:error instanceof assert.AssertionError?error.message:'PREFLIGHT_ABORTED'};}
+report.completedAt=new Date().toISOString();await save();
+console.log(publicJson({preflightPassed:report.preflightPassed,schemasExactlyEqual:report.schemasExactlyEqual||false,estimateSucceeded:report.estimateSucceeded||false,estimatedGas:report.estimatedGas||null,latestNonce:report.latestNonce,pendingNonce:report.pendingNonce,sourceSha256:report.sourceSha256,constructorArgs:[],error:report.error||null,record:file,chainTransactionsSent:0,modelCalls:0}));

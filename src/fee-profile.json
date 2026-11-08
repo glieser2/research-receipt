@@ -1,0 +1,10 @@
+{
+  "format": "research-receipt/development-fee-profile/1",
+  "network": "bradbury-development",
+  "scope": "Hand-selected capped development allocation; current public-chain prices are quoted before signing. Not a measured worst-case certification.",
+  "methods": ["create_order", "submit_revision", "verify_evidence", "evaluate"],
+  "leaderTimeunitsAllocation": "600",
+  "validatorTimeunitsAllocation": "600",
+  "executionBudgetPerRound": "10000000000000000",
+  "appealRounds": "0"
+}
