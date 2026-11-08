@@ -2,16 +2,15 @@
 
 **Do not submit this draft without separate explicit user instruction.** Public Bradbury Phase 2 (`chainId = 4221`) 51-case business E2E validation (`v6-wallet-4`, contract `0x10d41bf2e9b54440ced622171ceff191754bcf73`, deployed source `contracts/research_receipt_v6_compact_v3.py`, SHA-256 `5e4837ee9dba47577c728c732391721e7e7bac45c0d1674084420c271f2476cf`, canonical source `contracts/research_receipt_v6_r2_candidate.py`, SHA-256 `ce2a06360a16e53cfd7d4f94f39c1e81018f65f667e801a874b426cf4e56538f`) has now completed all `51 / 51` prelocked cases with `FINALIZED + accepted + MAJORITY_AGREE` consensus and verified final-state readbacks ([v6-wallet-4 public evidence](evidence/bradbury-v6-wallet-4-e2e.json)). All historical attempts and failures ([v5 evidence](evidence/bradbury-v5-attempt.json), [typed evidence](evidence/typed-probe-simulations.json), [structured evidence](evidence/structured-probe-simulations.json), [v6-wallet-2 deployment revert](evidence/v6-wallet-2-deployment-revert.json), and [v6-wallet-3 46/51 attempt halted at Case #47](evidence/bradbury-v6-wallet-3-attempt.json)) remain preserved in full.
 
-Preparation material for a Projects submission. The website is public by explicit user authorization; anonymous HTTP access returned 200 without credentials or redirects. The sanitized source archive (`ResearchReceipt-reviewed-source.zip`) and site bundle (`research-receipt-site.tar.gz`) are audited and prepared for publication to `https://github.com/glieser2/research-receipt` and `https://research-receipt-lab.milkyhoop.chatgpt.site/`. **No Portal contribution form has been submitted yet, and no review decision or points award is claimed.**
+Preparation material for a Projects submission. The website is public by explicit user authorization; anonymous HTTP access returned 200 without credentials or redirects. The sanitized source archive (`ResearchReceipt-reviewed-source.zip`) and site bundle (`research-receipt-site.tar.gz`) are audited and prepared for publication to `https://github.com/glieser2/research-receipt` and `https://glieser2.github.io/research-receipt/`. **No Portal contribution form has been submitted yet, and no review decision or points award is claimed.**
 
 ## Name and one-line description
 
 **ResearchReceipt**
 
 - **English (Default)**: A GenLayer research delivery workbench that locks buyer criteria, commit-pinned GitHub sources, and four-field unknown disclosures for verifiable consensus receipts.
-- **简体中文**: 加密研究交付验收工作台：双方锁定研究标准和公开证据仓库，由 GenLayer 独立核验约定声明，记录逐项结论、补证修订与可导出回执。
 
-Suggested primary category: `AI & Agents` (`AI 与智能体`) or `Dispute Resolution` (`争议解决`). Choose secondary themes only from the form's actual options when submission is authorized.
+Suggested primary category: `AI & Agents` or `Dispute Resolution`. Choose secondary themes only from the form's actual options when submission is authorized.
 
 ## User problem and value
 

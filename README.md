@@ -1,7 +1,5 @@
 # ResearchReceipt
 
-**English (Default) | [简体中文](#简体中文说明)**
-
 Verifiable crypto research commissioning and public-evidence acceptance workbench built with React + TypeScript + Vite and a GenLayer Python Intelligent Contract (`research-receipt/6`). Non-custodial; no token transfers or trading functionality.
 
 - **Bilingual Interface (`EN / ZH`)**: English (`en`) is the default language (`<html lang="en">`, persisted in `localStorage` under `rr:lang:v1`). In English mode, **zero Chinese characters** appear anywhere in the UI, templates, error/status messages, demo data, or on-chain order displays. Users can switch between English and Simplified Chinese at any time using the topbar `EN / ZH` language toggle.
@@ -34,6 +32,23 @@ Verifiable crypto research commissioning and public-evidence acceptance workbenc
 | Canonical Source (`v6_r2_candidate`) SHA-256 | `ce2a06360a16e53cfd7d4f94f39c1e81018f65f667e801a874b426cf4e56538f` (50,227 bytes) |
 | Business Suite Outcome | `51 / 51` passed (including Cases `#1..#13` hard gate, Case `#47` `evaluateOptionalOmitted`, and Cases `#48..#51` six-criterion flow) |
 
+## Historical Testnet Lineage & Preserved Evidence
+
+- **Studio-dev (`61997`) vs. Public Testnet (`4221`)**: Studio-dev is a hosted development simulator where saved transaction records have `null` `blockHash` and `blockNumber`; its `FINALIZED` status is not treated as public L2 block inclusion evidence.
+- **Session Interruption & Historical Signers**: Two earlier in-memory ephemeral signing sessions became unavailable on 2026-11-06 (`Asia/Shanghai`). Historical address `0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70` retains ~1.995675 testnet GEN (`nonce = 33`), and `0x7036138ada2052af0b07dae5a4d450effd9a40e3` has zero balance; neither key was persisted and neither should be funded ([v6-session-interruption.json](docs/evidence/v6-session-interruption.json)). Subsequent `v6-wallet-4` validation was executed by user-controlled testnet wallet `0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd`.
+- **v5 & Diagnostic Probes**: The 10 executed `v5` operations and committee disagreement on the positive evaluation are retained in [bradbury-v5-attempt.json](docs/evidence/bradbury-v5-attempt.json). Subsequent unsigned diagnostic probes (`typed`, `structured`, and `sufficiency`) are preserved in [typed-probe-simulations.json](docs/evidence/typed-probe-simulations.json), [structured-probe-simulations.json](docs/evidence/structured-probe-simulations.json), and [sufficiency-probe-simulations.json](docs/evidence/sufficiency-probe-simulations.json).
+- **v6 Lineage (`v6-wallet-2` -> `v6-wallet-3` -> `v6-wallet-4`)**:
+  - `contracts/research_receipt_v6_candidate.py` (`9cff3a90…1b4a19`) and `compact` (`e053f1b4…7e1fcb`, 43,437 bytes) reverted on L2 in `v6-wallet-2` due to a `15,000,000` gas limit (envelope `0xfa51562ff02e0e19346723c3ba2687654b2c4682d86d28104851c62b7db6ba23`, [v6-wallet-2-deployment-revert.json](docs/evidence/v6-wallet-2-deployment-revert.json)).
+  - Byte-reduced `compact_v2` (`2af33b26…1e42e2`, 35,916 bytes) in `v6-wallet-3` (contract `0xc7d9a5e9fa776f76b1348c7009ea23de6d873885`) passed Cases `#1..#46` (`FINALIZED + accepted`), then halted at Case `#47` `evaluateOptionalOmitted` (protocol tx `0x39b4178dff177c52a319270efafe9618d944606421c30210e53a38c0d52b80a9`) due to a transient validator sub-VM exception (`MAJORITY_DISAGREE`), preserved in [bradbury-v6-wallet-3-attempt.json](docs/evidence/bradbury-v6-wallet-3-attempt.json).
+  - Sub-VM exception-hardened canonical source `contracts/research_receipt_v6_r2_candidate.py` (`ce2a06360a16e53cfd7d4f94f39c1e81018f65f667e801a874b426cf4e56538f`, 50,227 bytes) and AST/constant/runner-verified deployment artifact `contracts/research_receipt_v6_compact_v3.py` (`5e4837ee9dba47577c728c732391721e7e7bac45c0d1674084420c271f2476cf`, 36,128 bytes) deployed at `0x10d41bf2e9b54440ced622171ceff191754bcf73` under [v6-wallet-4-validation-plan.json](docs/evidence/v6-wallet-4-validation-plan.json) and passed all `51 / 51` cases ([bradbury-v6-wallet-4-e2e.json](docs/evidence/bradbury-v6-wallet-4-e2e.json)). Transport observations across both official RPC endpoints are recorded in [v6-transport-observations.json](docs/evidence/v6-transport-observations.json), and staged review notes are in [v6-staged-review.md](docs/v6-staged-review.md).
+
+## Verification & Scope Boundaries
+
+- Evaluates only locked criteria and their bound statements against committed snapshot sources; does not verify every sentence of an arbitrary report, and does not constitute a smart-contract security audit, mainnet deployment verification, yield forecast, or investment advice.
+- Consensus evaluations use public testnet models and may still make errors; independent re-evaluation is not a proof of external ground truth.
+- Python unit tests use explicit GenVM interface stubs; TypeScript transaction tests mock the SDK transport. They do not replace live runtime, wallet, public chain, or security audits.
+- See [Contract Interface](docs/contract.md), [Security Policy](SECURITY.md), [Validation Record](docs/validation.md), and [Contribution Draft](docs/contribution-draft.md).
+
 ## Development & Verification
 
 Requires Node 22+, pnpm 11, and Python 3.13 (for GenVM stub unit tests).
@@ -47,40 +62,3 @@ pnpm build
 ```
 
 Latest local verification suite: **134 Vitest tests**, **92 Node tests**, **350 Python stub unit tests**, and production Vite build passing.
-
----
-
-## 简体中文说明
-
-加密研究委托与公开证据交付验收工作台。React + TypeScript + Vite；GenLayer Python Intelligent Contract。无托管、转账或交易功能。支持中英双语切换（默认英文 `EN`，英文模式下不出现任何中文字符，可通过顶部导航栏 `EN / ZH` 按钮随时切换为简体中文）。
-
-**公开 Bradbury Phase 2（`chainId = 4221`）`v6-wallet-4` 51 项预锁业务 E2E 已全部通过（`51 / 51` `FINALIZED + accepted + MAJORITY_AGREE`），只读公开证据收集包 [bradbury-v6-wallet-4-e2e.json](docs/evidence/bradbury-v6-wallet-4-e2e.json) 已核验落盘（`status: "COLLECTED"`, `ready: true`, `allRequiredCasesPassed: true`, `firstGatePassed: true`, `latestFinalVerified: true`）。历史失败（含 `v6-wallet-3` 在第 47 项中止、`v6-wallet-2` 部署 gas 回滚、原 33 笔历史交易及探针记录）与原预期完整保留。按用户指令，Portal 贡献表单尚未填写或提交，GitHub 仓库暂缓创建。**
-
-2026-11-06（Asia/Shanghai）恢复运行时，两个早期内存临时签名进程均已不可用，操作系统进程检查无匹配。旧地址 `0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70` 仍有约 1.995675 测试 GEN，但未保存的密钥无法恢复，当前不能签名或转出；新地址 `0x7036138ada2052af0b07dae5a4d450effd9a40e3` 余额为 0。请勿再向这两个地址补款。见[中断与余额记录](docs/evidence/v6-session-interruption.json)。后续由用户自控测试钱包 `0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd` 按独立冻结计划完成 `v6-wallet-4` 全套 51 项链上验证。
-
-| 环境 | 验证范围 | 当前情况 |
-| --- | --- | --- |
-| 本地示例演练 | 页面流程、确定性虚构案例与版本保留 | 无钱包可体验；Northstar 不标称模型共识 |
-| Studio-dev，61997 | 官方托管开发模拟环境中的真实 GenVM／模型执行、协议状态与回读 | 已部署；负例、修订、摘要失败、权限／重放拒绝及浏览器完整流程通过 |
-| 公开 Bradbury Phase 2，4221 | 持久公开测试链的交易、区块证据与合约状态 | `v6-wallet-4`（合约 `0x10d41bf2e9b54440ced622171ceff191754bcf73`）51/51 项业务用例全部 `FINALIZED + accepted` 通过；33 笔旧历史交易及 `v6-wallet-2`/`v6-wallet-3` 失败记录独立保留 |
-
-Studio-dev 不是公开链；已保存的开发环境交易记录中 `blockHash`、`blockNumber` 为 `null`。其 `FINALIZED` 不能当作公开 L2 收录证明。网站已按用户授权公开，匿名 HTTP 访问返回 200；GitHub 按用户决定暂缓，先保留本地源码包。没有获批或获分记录。
-
-v5 的十次已执行业务操作与完整公开失败结果见 [v5 尝试记录](docs/evidence/bradbury-v5-attempt.json)。后续 typed 诊断前三组公开节点配对通过，第四组“未知夹带即时退出承诺”中 validator 错判为有效，严格比较拒绝；第五组及委员会部署均停止。八次无签名模拟和完整投影见 [typed 诊断记录](docs/evidence/typed-probe-simulations.json)。结构化版本使用独立源码与预锁输入，不重解释这些失败。
-
-结构化版本随后通过前三组配对，但第四组 leader 将无证据承诺拒绝为“矛盾”，未符合预锁的“证据未建立”分类；因此在 validator 前停止，见 [七次结构化模拟记录](docs/evidence/structured-probe-simulations.json)。它没有误放行，也不能称为双方分歧。后续独立方案把事实／边界判断限定为二元证据充分性，牺牲反证／缺证的共识细分，并将选材范围与支持引用分开。
-
-充分性探针随后通过[全部五组公开节点配对](docs/evidence/sufficiency-probe-simulations.json)，但首笔真实部署因 SDK 估算 revert 后回退到不足的 200,000 gas，被 L2 拒绝；没有协议交易哈希，fresh nonce 未变化。
-
-v6 将事实／边界充分性与结构化未知披露合并到真实业务路径，保留来源快照绑定和一次性锁定。
-- 初版可读源码 `contracts/research_receipt_v6_candidate.py`（`9cff3a90…1b4a19`）与 `compact`（`e053f1b4…7e1fcb`，43,437 字节）在 `v6-wallet-2` 中因 `15,000,000` gas 上限在 L2 回滚（信封 `0xfa51562ff02e0e19346723c3ba2687654b2c4682d86d28104851c62b7db6ba23`，见 [`v6-wallet-2` 部署回滚记录](docs/evidence/v6-wallet-2-deployment-revert.json)）。
-- 缩减字节后的 `compact_v2`（`2af33b26…1e42e2`，35,916 字节）在 `v6-wallet-3`（合约 `0xc7d9a5e9fa776f76b1348c7009ea23de6d873885`）通过前 46 项，但在第 47 项 `evaluateOptionalOmitted`（协议交易 `0x39b4178dff177c52a319270efafe9618d944606421c30210e53a38c0d52b80a9`）因验证者子 VM 瞬态异常触发 `MAJORITY_DISAGREE` 而按规则中止，完整保留于 [`v6-wallet-3` 中止归档](docs/evidence/bradbury-v6-wallet-3-attempt.json)。
-- 针对子 VM 异常捕获与有界重试加固后的可读源码 `contracts/research_receipt_v6_r2_candidate.py`（`ce2a06360a16e53cfd7d4f94f39c1e81018f65f667e801a874b426cf4e56538f`，50,227 字节）与经 AST／非文档字符串常量／runner 等价校验的部署源码 `contracts/research_receipt_v6_compact_v3.py`（`5e4837ee9dba47577c728c732391721e7e7bac45c0d1674084420c271f2476cf`，36,128 字节）在 [`v6-wallet-4` 51 项冻结计划](docs/evidence/v6-wallet-4-validation-plan.json)下部署至 `0x10d41bf2e9b54440ced622171ceff191754bcf73`，51 项全部通过（见 [`v6-wallet-4` 公开 E2E 证据](docs/evidence/bradbury-v6-wallet-4-e2e.json)）。两条官方 RPC 的完整身份验证及默认估算拒绝见[运输层记录](docs/evidence/v6-transport-observations.json)。候选审查和恢复边界见 [v6 审查](docs/v6-staged-review.md)。
-
-### 验收边界
-
-只验收锁定标准及关联声明；不表示整份报告的每一句话已核实，也不构成代码安全审计、真实部署验证、收益预测或投资建议。评估结果使用公开网络模型，可能出错；独立重评不等于外部真相证明。
-
-Python 单测使用明确的 GenVM 接口 stub；TypeScript 交易测试模拟 SDK。它们不能替代真实运行时、钱包、公开链或安全审计。
-
-详见 [合约接口](docs/contract.md)、[安全边界](SECURITY.md)、[验证记录](docs/validation.md)、[尚未提交的贡献草稿](docs/contribution-draft.md)。

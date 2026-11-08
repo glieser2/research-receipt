@@ -20,7 +20,7 @@ import {
 
 const CORRECTED_OWNER = '0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd';
 
-test('walletPlanFile 与 readWalletPlanBytes 强制项目内相对路径、拒绝越界与超限文件，并支持合法前缀文件名', async () => {
+test('walletPlanFile and readWalletPlanBytes enforce project-relative paths, reject escapes/oversized files, and allow valid dot-prefix filenames', async () => {
   const existing = await walletPlanFile('docs/evidence/v6-wallet-4-validation-plan.json');
   assert.ok(existing.endsWith('v6-wallet-4-validation-plan.json'));
 
@@ -48,11 +48,11 @@ test('walletPlanFile 与 readWalletPlanBytes 强制项目内相对路径、拒�
   }
 });
 
-test('validateWalletPlan 通过冻结的 v6-wallet-4 计划，并拒绝旧计划、wallet-1/2/3 计划、作废签名者与篡改承诺', async () => {
+test('validateWalletPlan accepts frozen v6-wallet-4 plan and rejects legacy plans, wallet-1/2/3 plans, superseded signers, and tampered commitments', async () => {
   assert.ok(WALLET_BOUNDED_GAS_LIMIT < BRADBURY_MAX_TX_GAS_LIMIT);
   assert.equal(BRADBURY_MAX_TX_GAS_LIMIT, 32000000n);
 
-  // 拒绝已作废的 wallet-1、wallet-2 与 wallet-3 计划
+  // Reject superseded wallet-1, wallet-2, and wallet-3 plans
   for (const supersededFile of [
     'docs/evidence/v6-wallet-1-validation-plan.json',
     'docs/evidence/v6-wallet-2-validation-plan.json',
@@ -72,7 +72,7 @@ test('validateWalletPlan 通过冻结的 v6-wallet-4 计划，并拒绝旧计划
     );
   }
 
-  // 直接使用真实冻结的 v6-wallet-4 计划核验承诺
+  // Verify commitments directly against the frozen v6-wallet-4 plan
   const wallet4Bytes = await readWalletPlanBytes('docs/evidence/v6-wallet-4-validation-plan.json');
   const wallet4Sha = sha256(wallet4Bytes);
   assert.equal(wallet4Sha, 'e65905d24990f7f1bc0fd20ae8b172d57c3290f7ae531b9711077205a46839d0');

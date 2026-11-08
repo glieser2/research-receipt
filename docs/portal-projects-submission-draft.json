@@ -6,15 +6,11 @@
   "name": "ResearchReceipt",
   "primary_tag_options": [
     "AI & Agents",
-    "AI 与智能体",
-    "Dispute Resolution",
-    "争议解决"
+    "Dispute Resolution"
   ],
   "secondary_tag_options": [
     "Evidence Assessment",
-    "证据评估",
-    "Research Verification",
-    "研究核验"
+    "Research Verification"
   ],
   "tagline": "A GenLayer research delivery workbench that locks buyer criteria, commit-pinned GitHub sources, and four-field unknown disclosures for verifiable consensus receipts.",
   "tagline_chars": 165,
