@@ -1,0 +1,730 @@
+{
+  "format": "research-receipt/typed-review-public-simulations/1",
+  "generatedAt": "2026-11-05T11:11:48.809Z",
+  "sourceFile": "contracts/research_receipt_typed_probe.py",
+  "sourceSha256": "db275c89e769e158e93db9632a2f0a61f5284e7d0048a064be372196293b77f3",
+  "fixtureFile": "tests/fixtures/bradbury-typed-probe-input.json",
+  "fixtureSha256": "d83ad1fc3877a6dc72ff5f2719ab8ff3ce0abaf253d490a9d5c5551732ec7aa9",
+  "planFile": "typed-probe-plan.json",
+  "planSha256": "e0f9dcc07e4266cdb3f2e6f86703da4cd71efb7e2376236ceb9de98df508b87b",
+  "chainTransactionsSent": 0,
+  "allPlannedPairsPassed": false,
+  "genCallsStarted": 8,
+  "attempts": [
+    {
+      "case": "positive",
+      "executed": true,
+      "startedAt": "2026-11-05T11:04:26.784Z",
+      "completedAt": "2026-11-05T11:05:28.475Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x35311",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SUPPORTED",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x35311",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SUPPORTED",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/typed-probe/db275c89e769e158e93db9632a2f0a61f5284e7d0048a064be372196293b77f3-positive.json",
+        "sha256": "6a2bd73ef244bbe8940c84f425156c3b83bfcef180a3f77cb3222f98d0ad4f24",
+        "published": false
+      }
+    },
+    {
+      "case": "negative",
+      "executed": true,
+      "startedAt": "2026-11-05T11:06:33.686Z",
+      "completedAt": "2026-11-05T11:07:35.737Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x35311",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "CONTRADICTED",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "status": "CONTRADICTED",
+                  "validity": "CONTRADICTED"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "NOT_ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x35311",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "CONTRADICTED",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "status": "CONTRADICTED",
+                  "validity": "CONTRADICTED"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "NOT_ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/typed-probe/db275c89e769e158e93db9632a2f0a61f5284e7d0048a064be372196293b77f3-negative.json",
+        "sha256": "938786b6e633b97a8c6d85e4904748482c2df2ab6ca968dedc2531dcfdd876a3",
+        "published": false
+      }
+    },
+    {
+      "case": "falseCautionOtherSource",
+      "executed": true,
+      "startedAt": "2026-11-05T11:07:49.162Z",
+      "completedAt": "2026-11-05T11:08:47.384Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x3531f",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "permissions",
+                  "delivery_status": "CONTRADICTED",
+                  "evidence_indices": [
+                    1
+                  ],
+                  "status": "CONTRADICTED",
+                  "validity": "CONTRADICTED"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "NOT_ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x3531f",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "permissions",
+                  "delivery_status": "CONTRADICTED",
+                  "evidence_indices": [
+                    1
+                  ],
+                  "status": "CONTRADICTED",
+                  "validity": "CONTRADICTED"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "NOT_ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/typed-probe/db275c89e769e158e93db9632a2f0a61f5284e7d0048a064be372196293b77f3-falseCautionOtherSource.json",
+        "sha256": "e39e400d1eeb3bf07d7eb6bcbbf60f2efee9f496993554a48b3611a4a8b0240f",
+        "published": false
+      }
+    },
+    {
+      "case": "unknownWithPromise",
+      "executed": true,
+      "startedAt": "2026-11-05T11:09:58.690Z",
+      "completedAt": "2026-11-05T11:11:12.191Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x35325",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SUPPORTED",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": 0,
+        "syncedBlock": "0x35325",
+        "markers": [
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SUPPORTED",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "VALID"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/typed-review-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": false
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": false,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/typed-probe/db275c89e769e158e93db9632a2f0a61f5284e7d0048a064be372196293b77f3-unknownWithPromise.json",
+        "sha256": "b9665089b538312b2501ca5bb23ccc89b504c41443dcf6dca1e6fff192c53203",
+        "published": false
+      }
+    },
+    {
+      "case": "boundaryIncomplete",
+      "executed": false
+    }
+  ],
+  "limits": [
+    "Unsigned gen_call pairs are real model executions, not on-chain committee consensus.",
+    "Independent committee deployments do not prove production lifecycle or broad model reliability.",
+    "Private validator configuration and timeout causes remain unknown; allocations are not calibrated resource bounds.",
+    "Any later production schema must independently bind typed spec/submission, immutable snapshot and client export/resume state, then pass a new complete E2E suite."
+  ]
+}

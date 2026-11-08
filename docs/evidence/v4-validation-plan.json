@@ -1,0 +1,270 @@
+{
+  "format": "research-receipt/v4-prelocked-plan/1",
+  "preparedAt": "2026-11-05T06:53:50.292Z",
+  "policyVersion": "research-receipt/4",
+  "fixtureFile": "artifacts/bradbury/v4-e2e-input.json",
+  "fixtureSha256": "a423530364c4c65fd5c3ef23db2e23f1cefa8a27a587f9dbe692ec0453930dfc",
+  "sourceCommitment": {
+    "file": "contracts/research_receipt.py",
+    "sha256": "f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61"
+  },
+  "expected": [
+    {
+      "id": "positive",
+      "spec": "spec",
+      "submission": "positive",
+      "statuses": [
+        "SUPPORTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "ACCEPTED"
+    },
+    {
+      "id": "negative",
+      "spec": "spec",
+      "submission": "negative",
+      "statuses": [
+        "CONTRADICTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "CONTRADICTED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "NOT_ACCEPTED"
+    },
+    {
+      "id": "strictUnknown",
+      "spec": "specStrict",
+      "submission": "positive",
+      "statuses": [
+        "SUPPORTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "FULFILLED",
+        "INSUFFICIENT",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "id": "hashMismatch",
+      "spec": "specMissing",
+      "submission": "missing",
+      "statuses": [
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_UNAVAILABLE"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "INSUFFICIENT",
+        "INSUFFICIENT",
+        "INSUFFICIENT"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "modelCalls": 0
+    },
+    {
+      "id": "contradictionWithUnknown",
+      "spec": "spec",
+      "submission": "contradictionWithUnknown",
+      "statuses": [
+        "CONTRADICTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "CONTRADICTED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "NOT_ACCEPTED",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "falseCaution",
+      "spec": "spec",
+      "submission": "falseCaution",
+      "statuses": [
+        "CONTRADICTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "CONTRADICTED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "NOT_ACCEPTED",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "unsupportedPromise",
+      "spec": "spec",
+      "submission": "unsupportedPromise",
+      "statuses": [
+        "SUPPORTED",
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "unknownWithPromise",
+      "spec": "spec",
+      "submission": "unknownWithPromise",
+      "statuses": [
+        "SUPPORTED",
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "deploymentOverreach",
+      "spec": "spec",
+      "submission": "deploymentOverreach",
+      "statuses": [
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "irrelevantTruth",
+      "spec": "spec",
+      "submission": "irrelevantTruth",
+      "statuses": [
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "missingClaim",
+      "spec": "spec",
+      "submission": "missingClaim",
+      "statuses": [
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "omittedCriterionModelCalls": 0,
+      "initialValidation": "local guard test"
+    },
+    {
+      "id": "unboundBody",
+      "spec": "spec",
+      "submission": "unboundBody",
+      "normalizationReject": true,
+      "modelCalls": 0
+    },
+    {
+      "id": "reorderedClaims",
+      "spec": "spec",
+      "submission": "reorderedClaims",
+      "statuses": [
+        "SUPPORTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "ACCEPTED",
+      "normalizationMatches": "positive",
+      "initialValidation": "local normalization only"
+    }
+  ],
+  "guardExpectations": [
+    "Missing/invalid evidence_requirement rejects order",
+    "Model-supplied delivery_status or SOURCE_UNAVAILABLE rejected",
+    "Format repair bounded globally to one request",
+    "False supported or false conservative leader classification rejected by independent comparison",
+    "Forged delivery, duplicate/missing finding, invalid references or source proof rejected",
+    "Optional contradiction cannot produce ACCEPTED",
+    "Report body must exactly equal normalized statements in locked-criterion order; unbound content rejected",
+    "Every per-criterion prompt excludes all other statements and full report body"
+  ],
+  "migration": "New structured-report schema. All report bodies are regenerated from statements in locked-criterion order. Only the missingClaim control changes report content: its old unclaimed permissions paragraph is intentionally removed, while its missing-claim insufficiency oracle is retained. All old v3 source, fixture, plan and failure evidence remain unchanged.",
+  "initialPublicSimulationLimit": {
+    "cases": [
+      "negative",
+      "positive",
+      "strictUnknown"
+    ],
+    "maximumLeaderValidatorPairs": 3,
+    "automaticRetries": 0,
+    "stopOnFirstFailure": true,
+    "safetyStop": "If both independent paths still mark the clearly false permissions claim SUPPORTED, do not claim automatic semantic acceptance is usable or search prompts until a lucky pass."
+  },
+  "frozenBeforeExecutionAt": "2026-11-05T06:59:39.033Z"
+}

@@ -1,0 +1,631 @@
+{
+  "format": "research-receipt/public-semantic-simulations/1",
+  "generatedAt": "2026-11-05T07:07:20.082Z",
+  "method": "Official public Bradbury gen_call type=deploy, one leader call and its opaque leaderPublicData supplied to one validator call per executed case. No signed or on-chain transaction.",
+  "chainTransactionsSent": 0,
+  "executedPairs": 4,
+  "genCallRequestsStarted": 8,
+  "execPromptCalls": 32,
+  "simulations": [
+    {
+      "businessPolicyVersion": "research-receipt/3",
+      "sourceArchive": "contracts/archive/research_receipt_v3_candidate_19d6.py",
+      "sourceSha256": "19d6cd9a6ac04328f50236922fad9985aead47b3db215ca847dd854e216d241e",
+      "fixtureFile": "artifacts/bradbury/v3-e2e-input.json",
+      "fixtureSha256": "f89ea1dfd5d963c792171a65eb03ed0f8925ead1a15be5a4b46501a85589002e",
+      "planFile": "docs/evidence/v3-validation-plan.json",
+      "planSha256": "3288cc6f9559229b4d0aaa080ae596378e317d8ab10aeea7e28764ffa8651544",
+      "probeSourceSha256": "65b226acf85c8213634a80eaf3958c1cbf69c6d0c15894b88e5b61ca8a6628eb",
+      "caseId": "negative",
+      "startedAt": "2026-11-05T06:43:01.619Z",
+      "completedAt": "2026-11-05T06:43:50.717Z",
+      "rawArtifact": {
+        "file": "artifacts/bradbury/v3-probe/19d6cd9a6ac04328f50236922fad9985aead47b3db215ca847dd854e216d241e-negative-network-restored.json",
+        "sha256": "a0b59c5d29878859f01b90c54df4d3a3b7cba2d518f10fde57793a86f69bc25a",
+        "published": false
+      },
+      "genCallRequestsStarted": 2,
+      "capturedResponses": 2,
+      "leader": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "aac245a469762021b03df5dfec62041abeb8f6b065303c8055afa8275af2c2be",
+          "submissionHash": "14b27e4bc9c215316b5c78ddfc06f9dd7646234372834dfc2972f84013da8339",
+          "contentHash": "5d02e97046262ab81a7eaff3e3b0010ca840cafa5516387c64732a056df8f62b"
+        },
+        "projection": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "NOT_ESTABLISHED",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": []
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validator": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "aac245a469762021b03df5dfec62041abeb8f6b065303c8055afa8275af2c2be",
+          "submissionHash": "14b27e4bc9c215316b5c78ddfc06f9dd7646234372834dfc2972f84013da8339",
+          "contentHash": "5d02e97046262ab81a7eaff3e3b0010ca840cafa5516387c64732a056df8f62b"
+        },
+        "projection": {
+          "verdict": "ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validatorReturnedBool": false,
+      "nondetDisagreementCallNo": 0,
+      "matchedPrelockedOracleAndFullComparison": false
+    },
+    {
+      "businessPolicyVersion": "research-receipt/4",
+      "sourceArchive": "contracts/archive/research_receipt_v4_f5a656.py",
+      "sourceSha256": "f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61",
+      "fixtureFile": "artifacts/bradbury/v4-e2e-input.json",
+      "fixtureSha256": "a423530364c4c65fd5c3ef23db2e23f1cefa8a27a587f9dbe692ec0453930dfc",
+      "planFile": "docs/evidence/v4-validation-plan.json",
+      "planSha256": "37cbaa9ac2d1cb345724cebad9a33dace4ad58cbac848fc370928bb07def4730",
+      "probeSourceSha256": "2e25b029074a32bb2465cc47eeca40b3409b6b7ca3d7ad829498b1fbaacf27e1",
+      "caseId": "negative",
+      "startedAt": "2026-11-05T07:00:20.861Z",
+      "completedAt": "2026-11-05T07:01:37.447Z",
+      "rawArtifact": {
+        "file": "artifacts/bradbury/v4-probe/f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61-negative.json",
+        "sha256": "0db375754fb18d452951d75f0fdcb99b463e16fafee526e242d6f2d54892214b",
+        "published": false
+      },
+      "genCallRequestsStarted": 2,
+      "capturedResponses": 2,
+      "leader": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "ee0acceb09525fa11b5d4d0e33690c74968737de293823db83b0b4c932b0da9a",
+          "submissionHash": "14b27e4bc9c215316b5c78ddfc06f9dd7646234372834dfc2972f84013da8339",
+          "contentHash": "5d02e97046262ab81a7eaff3e3b0010ca840cafa5516387c64732a056df8f62b"
+        },
+        "projection": {
+          "verdict": "NOT_ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "CONTRADICTED",
+              "delivery_status": "CONTRADICTED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validator": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "ee0acceb09525fa11b5d4d0e33690c74968737de293823db83b0b4c932b0da9a",
+          "submissionHash": "14b27e4bc9c215316b5c78ddfc06f9dd7646234372834dfc2972f84013da8339",
+          "contentHash": "5d02e97046262ab81a7eaff3e3b0010ca840cafa5516387c64732a056df8f62b"
+        },
+        "projection": {
+          "verdict": "NOT_ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "CONTRADICTED",
+              "delivery_status": "CONTRADICTED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validatorReturnedBool": true,
+      "nondetDisagreementCallNo": null,
+      "matchedPrelockedOracleAndFullComparison": true
+    },
+    {
+      "businessPolicyVersion": "research-receipt/4",
+      "sourceArchive": "contracts/archive/research_receipt_v4_f5a656.py",
+      "sourceSha256": "f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61",
+      "fixtureFile": "artifacts/bradbury/v4-e2e-input.json",
+      "fixtureSha256": "a423530364c4c65fd5c3ef23db2e23f1cefa8a27a587f9dbe692ec0453930dfc",
+      "planFile": "docs/evidence/v4-validation-plan.json",
+      "planSha256": "37cbaa9ac2d1cb345724cebad9a33dace4ad58cbac848fc370928bb07def4730",
+      "probeSourceSha256": "2e25b029074a32bb2465cc47eeca40b3409b6b7ca3d7ad829498b1fbaacf27e1",
+      "caseId": "positive",
+      "startedAt": "2026-11-05T07:03:09.426Z",
+      "completedAt": "2026-11-05T07:04:19.453Z",
+      "rawArtifact": {
+        "file": "artifacts/bradbury/v4-probe/f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61-positive.json",
+        "sha256": "aa2fab13cb00133a7a8c7842e806a5b7e5c98ca59f485744a9bca50472c4fe42",
+        "published": false
+      },
+      "genCallRequestsStarted": 2,
+      "capturedResponses": 2,
+      "leader": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "ee0acceb09525fa11b5d4d0e33690c74968737de293823db83b0b4c932b0da9a",
+          "submissionHash": "3f53c463d237f2beb58f2a42f0e294814a24309fa95437147acfad4278bb0dd4",
+          "contentHash": "e890fd7bd1faf5bf6b2f03505166f88f30184f132071df4f131fff5123d6a37e"
+        },
+        "projection": {
+          "verdict": "ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validator": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "ee0acceb09525fa11b5d4d0e33690c74968737de293823db83b0b4c932b0da9a",
+          "submissionHash": "3f53c463d237f2beb58f2a42f0e294814a24309fa95437147acfad4278bb0dd4",
+          "contentHash": "e890fd7bd1faf5bf6b2f03505166f88f30184f132071df4f131fff5123d6a37e"
+        },
+        "projection": {
+          "verdict": "ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validatorReturnedBool": true,
+      "nondetDisagreementCallNo": null,
+      "matchedPrelockedOracleAndFullComparison": true
+    },
+    {
+      "businessPolicyVersion": "research-receipt/4",
+      "sourceArchive": "contracts/archive/research_receipt_v4_f5a656.py",
+      "sourceSha256": "f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61",
+      "fixtureFile": "artifacts/bradbury/v4-e2e-input.json",
+      "fixtureSha256": "a423530364c4c65fd5c3ef23db2e23f1cefa8a27a587f9dbe692ec0453930dfc",
+      "planFile": "docs/evidence/v4-validation-plan.json",
+      "planSha256": "37cbaa9ac2d1cb345724cebad9a33dace4ad58cbac848fc370928bb07def4730",
+      "probeSourceSha256": "2e25b029074a32bb2465cc47eeca40b3409b6b7ca3d7ad829498b1fbaacf27e1",
+      "caseId": "strictUnknown",
+      "startedAt": "2026-11-05T07:05:30.597Z",
+      "completedAt": "2026-11-05T07:06:27.921Z",
+      "rawArtifact": {
+        "file": "artifacts/bradbury/v4-probe/f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61-strictUnknown.json",
+        "sha256": "19073bdccfd23839380833cd66912ebd4895fc071d5394557c3b2c0ddc30ba72",
+        "published": false
+      },
+      "genCallRequestsStarted": 2,
+      "capturedResponses": 2,
+      "leader": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "e2014d0bcb5d8a47c5d4cf1696b5cf6b9920a8152471fed19a5e6e6119de3f5a",
+          "submissionHash": "3f53c463d237f2beb58f2a42f0e294814a24309fa95437147acfad4278bb0dd4",
+          "contentHash": "e890fd7bd1faf5bf6b2f03505166f88f30184f132071df4f131fff5123d6a37e"
+        },
+        "projection": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validator": {
+        "vmStatusCode": 0,
+        "inputCommitments": {
+          "specHash": "e2014d0bcb5d8a47c5d4cf1696b5cf6b9920a8152471fed19a5e6e6119de3f5a",
+          "submissionHash": "3f53c463d237f2beb58f2a42f0e294814a24309fa95437147acfad4278bb0dd4",
+          "contentHash": "e890fd7bd1faf5bf6b2f03505166f88f30184f132071df4f131fff5123d6a37e"
+        },
+        "projection": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        },
+        "execPromptCalls": 4,
+        "webRequestCalls": 2,
+        "formatRepairs": 0
+      },
+      "validatorReturnedBool": true,
+      "nondetDisagreementCallNo": null,
+      "matchedPrelockedOracleAndFullComparison": true
+    }
+  ],
+  "preflightFailures": [
+    {
+      "category": "SANDBOX_NETWORK_EACCES_BEFORE_CONNECT_COMPLETED",
+      "genCallRequestsStarted": 0,
+      "execPromptCalls": 0,
+      "countedAsModelAttempt": false,
+      "artifact": {
+        "file": "artifacts/bradbury/v3-probe/19d6cd9a6ac04328f50236922fad9985aead47b3db215ca847dd854e216d241e-negative.json",
+        "sha256": "a459b7411177f5b2cb79abaf9343ed485401e84336e33da5de9905348f639584"
+      },
+      "explicitZeroCallRecoveryAudit": {
+        "file": "artifacts/bradbury/v3-probe/19d6cd9a6ac04328f50236922fad9985aead47b3db215ca847dd854e216d241e-negative-preflight-release.json",
+        "sha256": "8e0f84dff5288a1a44ec27db0e53263f3bc9f031fc98785c8d34787e9df68388"
+      }
+    }
+  ],
+  "publicLeaderRationales": {
+    "policyVersion": "research-receipt/3",
+    "caseId": "negative",
+    "source": "Existing public leaderPublicData nd_outs[0], resultCode=0; these are public finding.reason strings, not hidden reasoning.",
+    "rawExtraction": {
+      "file": "artifacts/bradbury/v3-probe/19d6cd9a6ac04328f50236922fad9985aead47b3db215ca847dd854e216d241e-negative-public-leader-reasons.json",
+      "sha256": "9973cf4cf0d6aa50591ced5950f5d38eb1b0d24c256683d3f43c54a94bd88ceb"
+    },
+    "findings": [
+      {
+        "criterion_id": "permissions",
+        "status": "SUPPORTED",
+        "reason": "The source supports the claim about the literal code content, and the report accurately scopes unknowns for other requested parts."
+      },
+      {
+        "criterion_id": "limitations",
+        "status": "NOT_ESTABLISHED",
+        "reason": "Report claim and passages omit required discussion of evidence boundaries, failing full-coverage gate."
+      }
+    ]
+  },
+  "limitations": [
+    "These are read-only deployment simulations, not deployed contracts, EVM inclusion proofs, or actual multi-validator committee consensus.",
+    "No explicit time-unit allocation was requested; these simulations do not calibrate the 600-TU transaction fee profile.",
+    "Actual provider/model identity, provider caching/fallback behavior and private validator configuration are unknown.",
+    "Counts are observable contract exec_prompt invocations, not provider billing, token accounting, or proof of uncached upstream generations.",
+    "Only the explicitly executed cases are reported. No general accuracy, reliability percentage, or unseen-case claim is made.",
+    "V3 failure is retained; no oracle label was changed after its result. V4 is a separately frozen structured-input design, not a rerun of modified V3 evidence.",
+    "Raw opaque leaderPublicData, raw response bodies and debug logs remain excluded from this public summary."
+  ]
+}

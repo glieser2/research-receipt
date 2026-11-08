@@ -1,0 +1,43 @@
+{
+  "format": "research-receipt/compact-transport-addendum/1",
+  "prelockedAt": "2026-11-05T13:09:21.497Z",
+  "modelPlanFile": "docs/evidence/sufficiency-probe-plan.json",
+  "modelPlanSha256": "49337242d7eaad0e84527da67a17b8e37acf9422b311edf5735bdf11e086fdef",
+  "originalSourceSha256": "b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de",
+  "sourceFile": "contracts\\research_receipt_sufficiency_probe_compact.py",
+  "sourceSha256": "8e2c6fc15b92b35e10e3297bbe738a53a7d41fea8b06cc56aae41e6c19317038",
+  "fixtureFile": "artifacts/bradbury/structured-probe-input.json",
+  "fixtureSha256": "73703b4f60883ae6c51eeca9dd42a4dc945e97d020d88e6616af10679982b0d9",
+  "feeProfileSha256": "df9be739a22efd5460db67d6bbb688d0bec87f56f7d163582e4269960ede7415",
+  "buildProofFile": "docs/evidence/compact-probe-build.json",
+  "buildProofSha256": "6ae95c13467969a59e531c98ce4815413f18a090da26afeeddd67656e35c7e48",
+  "modelEvidenceFile": "docs/evidence/sufficiency-probe-simulations.json",
+  "modelEvidenceSha256": "8e68d07951694df818cce531f788fc75c5d9928d17837d80a15a7fc4453307d6",
+  "actor": "0x29EB14D10ec2E406E5d1419ED08D803b8B18aB70",
+  "originalIntentFile": "artifacts/bradbury/sufficiency-probe/positive-deployment-intent.json",
+  "originalSend": "Rejected intrinsic gas; observed latest/pending nonce remained 33 and no protocol hash was returned. No original deployment is claimed.",
+  "limits": {
+    "officialSchemaRequests": 2,
+    "unsignedDefaultEstimateRequests": 1,
+    "newGenCallRequests": 0,
+    "automaticRetries": 0,
+    "committeeDeployments": 2,
+    "activeAppeals": 0,
+    "topUps": 0
+  },
+  "committeeOrder": [
+    "positive",
+    "negative"
+  ],
+  "gates": [
+    "Both official schemas exactly agree before the single default estimate.",
+    "One default read-only estimate of the compact deployment must succeed; otherwise stop this transport variant.",
+    "A separate fresh nonce/identity recovery gate and explicit submitted hash must precede any independent deployment proof.",
+    "Proof source SHA must be the actual compact artifact, with original model evidence connected only by the reviewed equivalence record.",
+    "Positive complete receipt proof before negative deployment. Any committee failure stops remaining writes."
+  ],
+  "limitsOfEvidence": [
+    "Original b931 and all failed attempts remain frozen; this is not byte-identical source deployment.",
+    "No committee or business E2E success follows from successful compilation, equivalence or gas estimation."
+  ]
+}

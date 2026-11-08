@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.sites-runtime/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+*.tsbuildinfo
+artifacts/
+.openai/*.tar.gz

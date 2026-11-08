@@ -1,0 +1,87 @@
+{
+  "format": "research-receipt/inline-source-probe-plan/1",
+  "frozenBeforeExecutionAt": "2026-11-05T08:25:27.327Z",
+  "sourceFile": "contracts/research_receipt_inline_probe.py",
+  "sourceSha256": "ded346ad9d6b8f454401074b95b246e25526075cc809122726165ecf8d2ad75c",
+  "fixtureFile": "artifacts/bradbury/inline-probe-input.json",
+  "fixtureSha256": "c9e9884c2467106aa76449f28830f8323e831801450ee0f012bae9429606bb96",
+  "feeProfileSha256": "a6553f6ad12378835b01cc3c632f70e9f451e71fe1439c512beb1be7cd641de3",
+  "businessSourceSha256": "f5a656c23224a4cff7c9f87f2a04c24efd7b4a413a7f0a0449c2a1c7c5408c61",
+  "sourcePrerequisiteProofFile": "docs/evidence/source-only-probe-independent.json",
+  "sourcePrerequisiteProofSha256": "4d87d14261e7aa5082c6bbefb77f745b03d39f1a3abd0df54799d57e9816e386",
+  "expectedReceipt": {
+    "probe_version": "research-receipt/inline-source-probe/1",
+    "spec_hash": "ee0acceb09525fa11b5d4d0e33690c74968737de293823db83b0b4c932b0da9a",
+    "submission_hash": "14b27e4bc9c215316b5c78ddfc06f9dd7646234372834dfc2972f84013da8339",
+    "assessment": {
+      "verdict": "NOT_ACCEPTED",
+      "findings": [
+        {
+          "criterion_id": "permissions",
+          "status": "CONTRADICTED",
+          "delivery_status": "CONTRADICTED",
+          "evidence_indices": [
+            0
+          ]
+        },
+        {
+          "criterion_id": "withdrawals",
+          "status": "SCOPED_UNKNOWN",
+          "delivery_status": "FULFILLED",
+          "evidence_indices": [
+            0
+          ]
+        },
+        {
+          "criterion_id": "audit",
+          "status": "SCOPED_UNKNOWN",
+          "delivery_status": "FULFILLED",
+          "evidence_indices": [
+            0
+          ]
+        },
+        {
+          "criterion_id": "limitations",
+          "status": "SUPPORTED",
+          "delivery_status": "FULFILLED",
+          "evidence_indices": [
+            0
+          ]
+        }
+      ],
+      "source_checks": [
+        {
+          "index": 0,
+          "status": "VERIFIED",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+        },
+        {
+          "index": 1,
+          "status": "VERIFIED",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+        }
+      ]
+    }
+  },
+  "budget": {
+    "leaderTimeunitsAllocation": "600",
+    "validatorTimeunitsAllocation": "600",
+    "executionBudgetPerRound": "10000000000000000",
+    "appealRounds": "0",
+    "rotations": [
+      3
+    ],
+    "maximumInitialLeaderRounds": 4
+  },
+  "executionLimit": {
+    "deploymentTransactions": 1,
+    "automaticRetries": 0,
+    "getsPerIndependentExecution": 0,
+    "initialModelCallsPerIndependentExecution": 4,
+    "maximumFormatRepairCallsPerIndependentExecution": 1,
+    "activeAppeals": 0,
+    "topUps": 0
+  },
+  "acceptance": "FINALIZED accepted RETURN, independently verified source/sender/constructor inputs/inclusion, and exact complete latest-final get_receipt equality including every status, delivery, reference and source hash. Aggregate verdict alone is insufficient.",
+  "limits": "A new committee and time, and a different execution path. Results cannot prove the old private-validator cause or production stability. Actual network/model calls across committees, rotations and outside appeals may exceed a single independent execution."
+}

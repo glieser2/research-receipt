@@ -1,0 +1,107 @@
+{
+  "format": "research-receipt/antigravity-wallet-stage-a-report/1",
+  "recordedAt": "2026-11-07T04:26:30Z",
+  "executionRun": "v6-wallet-2",
+  "executionAuthority": "user-controlled-wallet",
+  "correctedOwner": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+  "supersededSignersRejected": [
+    "0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70",
+    "0x7036138ada2052af0b07dae5a4d450effd9a40e3",
+    "0xfdb942f537095d8e0c36b97a3b0324de81db9c3f"
+  ],
+  "supersededPlansRejected": [
+    "c731fb736abc2bf2c70e48d5a72cd1e72195a0bc25aa50070d7a9a28564b506e",
+    "04dbef08dc757f7457808d04f320b8cade446ca507596388e9f275e830753f77"
+  ],
+  "frozenCommitments": {
+    "deploymentSourceFile": "contracts/research_receipt_v6_compact.py",
+    "deploymentSourceSha256": "e053f1b4250b6a0e7717722c54dfe97717a5d341b374d9404d7b5b2c057e1fcb",
+    "canonicalSourceFile": "contracts/research_receipt_v6_candidate.py",
+    "canonicalSourceSha256": "9cff3a90a45daee031bf3fb893857bcb53cb07bc6501b86fecc955ce021b4a19",
+    "oracleEngineFile": "scripts/prepare-v6-e2e.py",
+    "oracleEngineSha256": "2e9c2f1e233fd863f16d43ceedf92d31387a8c1ee086200229cb61693b09c0ca",
+    "wallet2PlannerFile": "scripts/prepare-v6-wallet-2-e2e.py",
+    "wallet2PlannerSha256": "7425afdfd3be1dd99f04c5c1904761eb62e4c2d40428bb0f2c8ed88662218119",
+    "wallet2PlanFile": "docs/evidence/v6-wallet-2-validation-plan.json",
+    "wallet2PlanSha256": "306f742ac1b8bbdb8c01f0125c565dafe2c059ff1627cc1ed4f62c5804924b89",
+    "wallet2FixtureFile": "artifacts/bradbury/v6-wallet-2-e2e-input.json",
+    "wallet2PublicFixtureFile": "tests/fixtures/bradbury-v6-wallet-2-input.json",
+    "wallet2FixtureSha256": "518df208e7fc340a60383a0f7dc1fa1085d9e6283ed0ae8955ddf334ef763be3"
+  },
+  "historicalPreservation": {
+    "historicalTransactionsCount": 33,
+    "historicalMetadataSha256": "9f9f170d1e40c320317572a7da86dc39350fd313d46b8110b38d966e1fdd68af",
+    "oldPlanUnchanged": true,
+    "wallet1PlanUnchanged": true
+  },
+  "verification": {
+    "pythonUnitTests": {
+      "command": "python -m unittest discover -s tests/python -p test_*.py",
+      "testsRan": 264,
+      "passed": true
+    },
+    "nodeTests": {
+      "command": "node --test prepare-wallet-deployment.test.mjs collector-v6.test.mjs collector-v6-wallet.test.mjs bradbury-client.test.mjs gas-aware-session.test.mjs",
+      "testsRan": 48,
+      "passed": true
+    },
+    "vitestTests": {
+      "command": "vitest run src/",
+      "testFiles": 6,
+      "testsRan": 124,
+      "passed": true
+    },
+    "typecheckAndBuild": {
+      "tscNoEmitPassed": true,
+      "viteBuildPassed": true
+    },
+    "collectorSelfTest": "LOCAL_WALLET_2_COMMITMENTS_VERIFIED",
+    "captureSelfTest": "passed"
+  },
+  "independentReviewAttempt": {
+    "entryPoint": "antigravity-model-routing/run_role.py",
+    "role": "review",
+    "requestedModel": "claude-opus-5-5-high",
+    "status": "DEADLINE_EXCEEDED",
+    "reason": "print_timeout_120s",
+    "automaticRetryPerformed": false,
+    "mainAgentDirectReviewCompleted": true
+  },
+  "liveBradburyDeploymentReview": {
+    "reviewFile": "artifacts/wallet-validation/review.json",
+    "reviewFileSha256": "bfc629b764b20c8ed61c3f41e07d7a1b4745c948fcd8a9107adf8f8e5ade549f",
+    "verified": true,
+    "verifiedAt": "2026-11-07T04:25:01.473Z",
+    "validUntil": "1794028756",
+    "actor": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "chainId": 4221,
+    "genesisHash": "0x17d89764d4f4f963158fc4c5e8f2cb670c2837740b35f37081c12860c3df97e4",
+    "consensusMain": "0x2E2766cbc3E5e61Ce93bBcdCBb3eAcB82082A019",
+    "balanceWei": "97999999790000000000",
+    "nonce": {
+      "latest": "1",
+      "pending": "1"
+    },
+    "deploymentRequestHash": "2e7f2909f935f4b8899a51e1be8b89f6302c30a76ea3b66ac7e39e027fd5809b",
+    "valueWei": "40000000000033882",
+    "gas": "100000000",
+    "gasPriceWei": "10000000",
+    "maxTotalCostWei": "41000000000033882",
+    "ethCall": {
+      "blockNumber": "232612",
+      "blockHash": "0xf99273b34b7977b7efd2f60260c910a0438ddd34207f4f63a7795528a2d6cf42",
+      "success": true,
+      "httpStatus": 200,
+      "result": "0x0824212a217c742dc3802cc8068c0136988c7038ccf820e77b42c9591ca19474"
+    },
+    "signatures": 0,
+    "chainTransactionsSent": 0
+  },
+  "chainStatus": {
+    "v6Deployed": false,
+    "consensusAcceptedCases": 0,
+    "suiteComplete": false,
+    "publicSiteUpdated": false,
+    "sanitizedSourceZipUpdated": false
+  }
+}

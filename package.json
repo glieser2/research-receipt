@@ -1,0 +1,30 @@
+{
+  "name": "research-receipt",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "test": "vitest run src && node --test tests/node/*.test.mjs",
+    "test:contract": "python -m unittest discover -s tests/python -v",
+    "preview": "vite preview --host 127.0.0.1",
+    "deploy:contract": "node scripts/deploy-contract.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "lucide-react": "^0.468.0",
+    "genlayer-js": "2.0.0-rc.2",
+    "viem": "^2.38.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vitest": "^3.2.4"
+  }
+}

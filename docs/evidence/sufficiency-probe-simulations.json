@@ -1,0 +1,1250 @@
+{
+  "format": "research-receipt/sufficiency-review-public-simulations/1",
+  "generatedAt": "2026-11-05T12:23:50.652Z",
+  "sourceFile": "contracts/research_receipt_sufficiency_probe.py",
+  "sourceSha256": "b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de",
+  "fixtureFile": "tests/fixtures/bradbury-structured-probe-input.json",
+  "fixtureSha256": "73703b4f60883ae6c51eeca9dd42a4dc945e97d020d88e6616af10679982b0d9",
+  "planFile": "sufficiency-probe-plan.json",
+  "planSha256": "49337242d7eaad0e84527da67a17b8e37acf9422b311edf5735bdf11e086fdef",
+  "chainTransactionsSent": 0,
+  "allPlannedPairsPassed": true,
+  "genCallsStarted": 10,
+  "attempts": [
+    {
+      "case": "positive",
+      "executed": true,
+      "startedAt": "2026-11-05T12:14:48.215Z",
+      "completedAt": "2026-11-05T12:15:53.932Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x3539a",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "SUPPORTED",
+                  "validity": "ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x3539b",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "SUPPORTED",
+                  "validity": "ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/sufficiency-probe/b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de-positive.json",
+        "sha256": "3d77fba87d071e95a1c4dfdc1f6b0e35b27e57b1b473e9aa13866af3d13f63c9",
+        "published": false
+      }
+    },
+    {
+      "case": "negative",
+      "executed": true,
+      "startedAt": "2026-11-05T12:17:11.583Z",
+      "completedAt": "2026-11-05T12:18:14.501Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x3539b",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x3539d",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/sufficiency-probe/b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de-negative.json",
+        "sha256": "e9021a0011347d4892450e4c3d10c5a3b00d057ff277ad4e4180782c531eed1e",
+        "published": false
+      }
+    },
+    {
+      "case": "falseCautionOtherSource",
+      "executed": true,
+      "startedAt": "2026-11-05T12:18:29.696Z",
+      "completedAt": "2026-11-05T12:19:30.305Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x353a8",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "permissions",
+                  "delivery_status": "CONTRADICTED",
+                  "evidence_indices": [
+                    1
+                  ],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [
+                        1
+                      ],
+                      "field_id": "default_context_sender",
+                      "state": "FOUND"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "CONTRADICTED",
+                  "validity": "CONTRADICTED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "NOT_ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x353a8",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "permissions",
+                  "delivery_status": "CONTRADICTED",
+                  "evidence_indices": [
+                    1
+                  ],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [
+                        1
+                      ],
+                      "field_id": "default_context_sender",
+                      "state": "FOUND"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "CONTRADICTED",
+                  "validity": "CONTRADICTED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "NOT_ACCEPTED"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/sufficiency-probe/b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de-falseCautionOtherSource.json",
+        "sha256": "eef300c2beecacb1139a1c3e4a55cd1b0c25af4db077ce79398cf66a36558cb8",
+        "published": false
+      }
+    },
+    {
+      "case": "unsupportedPromiseAsFactual",
+      "executed": true,
+      "startedAt": "2026-11-05T12:19:43.017Z",
+      "completedAt": "2026-11-05T12:20:59.773Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x353ae",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "SUPPORTED",
+                  "validity": "ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x353ae",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "SUPPORTED",
+                  "validity": "ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "BOUNDARY_DISCLOSED",
+                  "validity": "ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/sufficiency-probe/b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de-unsupportedPromiseAsFactual.json",
+        "sha256": "1402c5a3b629b5aa66b953c91000eee718e821f97753a1b83893b58c6aad2cc5",
+        "published": false
+      }
+    },
+    {
+      "case": "boundaryIncomplete",
+      "executed": true,
+      "startedAt": "2026-11-05T12:21:15.750Z",
+      "completedAt": "2026-11-05T12:22:41.820Z",
+      "genCallsStarted": 2,
+      "leader": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x353ae",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "SUPPORTED",
+                  "validity": "ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          }
+        ]
+      },
+      "validator": {
+        "status": {
+          "code": 0,
+          "messageByteLength": 7,
+          "messageSha256": "aee408847d35e44e99430f0979c3357b85fe8dbb4535a494301198adbee85f27"
+        },
+        "nondetDisagreementCallNo": null,
+        "syncedBlock": "0x353ae",
+        "markers": [
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "independent",
+            "stage": "complete",
+            "projection": {
+              "findings": [
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "factual_assertion",
+                  "criterion_id": "permissions",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "SUPPORTED",
+                  "validity": "ESTABLISHED"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "withdrawals",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "withdrawal_waiting_period",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "instant_exit_conditions",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [],
+                  "claim_type": "unknown_disclosure",
+                  "criterion_id": "audit",
+                  "delivery_status": "FULFILLED",
+                  "evidence_indices": [],
+                  "field_checks": [
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_coverage",
+                      "state": "NOT_ESTABLISHED"
+                    },
+                    {
+                      "evidence_indices": [],
+                      "field_id": "audit_version",
+                      "state": "NOT_ESTABLISHED"
+                    }
+                  ],
+                  "scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "status": "SCOPED_UNKNOWN",
+                  "validity": "VALID"
+                },
+                {
+                  "basis_scope_source_indices": [
+                    0,
+                    1
+                  ],
+                  "claim_type": "boundary_disclosure",
+                  "criterion_id": "limitations",
+                  "delivery_status": "INSUFFICIENT",
+                  "evidence_indices": [],
+                  "field_checks": [],
+                  "scope_source_indices": [],
+                  "status": "NOT_ESTABLISHED",
+                  "validity": "NOT_ESTABLISHED"
+                }
+              ],
+              "source_checks": [
+                {
+                  "index": 0,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "status": "VERIFIED"
+                },
+                {
+                  "index": 1,
+                  "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+                  "status": "VERIFIED"
+                }
+              ],
+              "verdict": "INSUFFICIENT_EVIDENCE"
+            },
+            "model_calls": 4,
+            "format_repairs": 0
+          },
+          {
+            "probe_version": "research-receipt/sufficiency-probe/1",
+            "phase": "validator",
+            "stage": "comparison",
+            "equal": true
+          }
+        ]
+      },
+      "matchedCompletePrelockedOracle": true,
+      "error": null,
+      "rawArtifact": {
+        "file": "artifacts/bradbury/sufficiency-probe/b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de-boundaryIncomplete.json",
+        "sha256": "4416f8fb5ffb5e87b68e844c131f9480fd9afac989635cf0ff5d4a0e1e39c766",
+        "published": false
+      }
+    }
+  ],
+  "limits": [
+    "gen_call is unsigned simulation, not on-chain committee consensus or business lifecycle E2E.",
+    "Factual/boundary sufficiency does not distinguish refutation from absence of proof and provides no model-selected per-source support citations.",
+    "Sufficiency is relative to declared materials, not a claim that unreviewed sources or reality contain no opposing evidence.",
+    "Code-generated text prevents this unknown-input promise carrier but does not prove that sources lack answers; independent model review remains necessary.",
+    "False acceptance, factual/boundary model reliability and prompt-injection resistance remain empirical risks, not solved guarantees.",
+    "Provider identity, private validator behavior and timeout causes are unknown; 600/600 allocations are not measured worst-case calibration.",
+    "Production optional-criterion semantics, immutable snapshot binding and pending/resume must be separately reviewed and pass a complete new business suite."
+  ]
+}

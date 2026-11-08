@@ -1,0 +1,37 @@
+{
+  "format": "research-receipt/compact-build-evidence/1",
+  "algorithm": "python-ast-unparse-tokenize-minimal-whitespace/1",
+  "sourceFile": "contracts\\research_receipt_sufficiency_probe.py",
+  "sourceSha256": "b931e3b582ad96e934a985ca1d21a955ce3e2ea910eae2e3918e2c7896f290de",
+  "sourceBytes": 39864,
+  "artifactFile": "contracts\\research_receipt_sufficiency_probe_compact.py",
+  "artifactSha256": "8e2c6fc15b92b35e10e3297bbe738a53a7d41fea8b06cc56aae41e6c19317038",
+  "artifactBytes": 35274,
+  "toolFile": "scripts\\generate-compact-probe.py",
+  "toolSha256": "582aed2ebb3aa8551fc806fe44d28ab2920e242baee56266d83bbe545fd0ef04",
+  "testFile": "tests/python/test_compact_probe.py",
+  "testSha256": "ea807da4f5867a5dc2efc6ca8d84c1c3a645da1fa8e089c5a4adcf73d011f328",
+  "pythonImplementation": "CPython",
+  "pythonVersion": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "fullAstEqual": true,
+  "astSha256": "cc7b9b78e641420d7a644e4bca405605010d49f6e317b899d2eee618d981b01f",
+  "orderedConstantsEqual": true,
+  "orderedConstantsSha256": "b2f6a321acb8f59a71097827c9090920df55170ce111f18b974c635347fffeee",
+  "runnerHeaderBytesIdentical": true,
+  "dependencyCheck": {
+    "scope": "Static explicit name/import/attribute check, not a general runtime equivalence proof",
+    "source_line_introspection_dependency_hits": []
+  },
+  "behaviorTestCount": 18,
+  "behaviorTestsPassed": true,
+  "originalVerbatimSourceAssertion": "INAPPLICABLE to compact formatting; replaced by full AST/constants and behavioral equivalence tests",
+  "rawReport": {
+    "file": "artifacts/compact-builds/20261105T130559.575047Z-8e2c6fc15b92.json",
+    "sha256": "37aba77da6e289db2179143359b042fd124b8d86ae6f272b5f143566b7ec6f62",
+    "published": false
+  },
+  "limits": [
+    "Original source-text identity assertions do not apply to this formatted build.",
+    "AST/constant/behavior equivalence is not proof of identical target resource use or committee acceptance."
+  ]
+}

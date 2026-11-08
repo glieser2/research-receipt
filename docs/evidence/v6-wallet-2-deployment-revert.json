@@ -1,0 +1,89 @@
+{
+  "format": "research-receipt/v6-wallet-deployment-revert-evidence/1",
+  "collectedAt": "2026-11-07T05:26:31.308Z",
+  "executionRun": "v6-wallet-2",
+  "status": "EVM_ENVELOPE_REVERTED_ARBOS_MAX_TX_GAS_LIMIT",
+  "retried": false,
+  "protocolTransactionsCreated": 0,
+  "consensusProven": false,
+  "e2eVerified": false,
+  "planFile": "docs/evidence/v6-wallet-2-validation-plan.json",
+  "planSha256": "306f742ac1b8bbdb8c01f0125c565dafe2c059ff1627cc1ed4f62c5804924b89",
+  "canonicalSourceFile": "contracts/research_receipt_v6_candidate.py",
+  "canonicalSourceSha256": "9cff3a90a45daee031bf3fb893857bcb53cb07bc6501b86fecc955ce021b4a19",
+  "canonicalSourceBytes": 49894,
+  "deploymentSourceFile": "contracts/research_receipt_v6_compact.py",
+  "deploymentSourceSha256": "e053f1b4250b6a0e7717722c54dfe97717a5d341b374d9404d7b5b2c057e1fcb",
+  "deploymentSourceBytes": 43437,
+  "reviewBundle": {
+    "file": "artifacts/wallet-validation/review.json",
+    "sha256": "53042875e08200ce2da69234fce05a08ea5e2c0896131205a27208cdbb20f9db",
+    "deploymentRequestHash": "90c98704f076c0718964de3ee2002ebffc4529c80bb53528a73c9db7ed74d5a8",
+    "verifiedAt": "2026-11-07T05:02:02.696Z",
+    "ethCallBlockNumber": "232674",
+    "ethCallBlockHash": "0x41ed41e0adf5a700f2d9522078ac91f1ba5dbe0b7ac453edd02371033a62e6f3",
+    "ethCallSimulatedGas": "100000000",
+    "ethCallSucceededAt100M": true
+  },
+  "envelopeTransaction": {
+    "hash": "0xfa51562ff02e0e19346723c3ba2687654b2c4682d86d28104851c62b7db6ba23",
+    "chainId": 4221,
+    "blockNumber": 232806,
+    "blockHash": "0x30c53fdfb317678506d060d8e01c9d74a9ba787ccbe8c7840cd5fc3e1b943373",
+    "blockTimestamp": 1794027956,
+    "transactionIndex": 1,
+    "from": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "to": "0x2e2766cbc3e5e61ce93bbcdcbb3eacb82082a019",
+    "nonce": 1,
+    "gasLimit": "100000000",
+    "gasPriceWei": "10000000",
+    "effectiveGasPriceWei": "10000000",
+    "valueWei": "40000000000033882",
+    "calldataBytes": 44260,
+    "receiptStatus": "0x0",
+    "gasUsed": "29232553",
+    "gasUsedForL1": "0",
+    "l2FeePaidWei": "292325530000000",
+    "valueDepositRefundedOnRevert": true,
+    "logsCount": 0,
+    "bothOfficialRpcsAgreeOnReceipt": true
+  },
+  "rootCauseProof": {
+    "precompile": "ArbGasInfo (0x000000000000000000000000000000000000006C)",
+    "queriedAtBlockNumber": 232806,
+    "speedLimitPerSecond": "7000000",
+    "gasPoolMax": "32000000",
+    "maxTxGasLimit": "32000000",
+    "parentBlockSimulationNumber": 232805,
+    "ethCallAt32000000Gas": {
+      "gas": "32000000",
+      "reverted": true,
+      "errorMessage": "execution reverted"
+    },
+    "ethCallAt35550902Gas": {
+      "gas": "35550902",
+      "reverted": true,
+      "errorMessage": "execution reverted"
+    },
+    "ethCallAt35556944Gas": {
+      "gas": "35556944",
+      "succeeded": true,
+      "simulatedTxId": "0x1fb7d8d086c16dc9bf5dc71effd9e8e7e21b6929d0b24acb474aaf59c978353a"
+    },
+    "syntheticEstimateGasThresholdAtBlock232808": {
+      "approxMaxEstimableSourceBytes": 38895,
+      "approxMinFailingSourceBytes": 38922,
+      "estimateGasAt34000Bytes": 28469666,
+      "estimateGasAt36000Bytes": 29919274,
+      "historicalV5SourceBytes": 36755,
+      "lockedV6CompactSourceBytes": 43437
+    },
+    "explanation": "Arbitrum Nitro ArbOS on Bradbury Phase 2 enforces maxTxGasLimit = 32,000,000 per L2 transaction, while storing 43,437-byte contracts/research_receipt_v6_compact.py via ConsensusMain.addTransaction requires ~35.55M gas. Nitro eth_call did not clamp caller-supplied 100M gas to maxTxGasLimit, whereas both eth_estimateGas and real block state transition clamped execution to 32M, causing inner Out-Of-Gas at gasUsed = 29,232,553."
+  },
+  "accountPostState": {
+    "address": "0x5d89aa5eaa6dc6734ded7ebe060f4b8682c504bd",
+    "latestNonce": 2,
+    "pendingNonce": 2,
+    "balanceWei": "97999707464470000000"
+  }
+}

@@ -1,0 +1,860 @@
+{
+  "collectedAt": "2026-11-05T02:47:33.892Z",
+  "environment": "Official hosted Studio-dev development simulator; not proof of public Bradbury chain deployment",
+  "deployment": {
+    "network": "studio-dev",
+    "rpcUrl": "https://studio-dev.genlayer.com/api",
+    "chainId": 61997,
+    "contractAddress": "0xa73d09fE5f065ECa8d05b3371cDC5E91213319f1",
+    "deploymentTx": "0xc00b0bf48ee9933373956fab6cec14660403d89ecb7b2b7656ec845741399291",
+    "sourceSha256": "3817bc2c658b5c5501e50b39263cd3291eaa8e6b29181110007ccb352ecb32c3",
+    "runner": "py-genlayer:babwp9t37jw9g4j2bccgn14g6x7x9s1f7dsmh7emvz735pz4zxa0",
+    "verified": true,
+    "e2eVerified": true,
+    "environmentType": "hosted-development-simulator",
+    "publicChainDeploymentVerified": false,
+    "sampleOrderIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "sourceSha256": "3817bc2c658b5c5501e50b39263cd3291eaa8e6b29181110007ccb352ecb32c3",
+  "deployedSourceSha256": "3817bc2c658b5c5501e50b39263cd3291eaa8e6b29181110007ccb352ecb32c3",
+  "actors": {
+    "owner": "0x8b93883630350E4352887379c9a31889B1f3E680",
+    "author": "0xB2CcdfdA39658ad96A637E8af4896B190493D1EC",
+    "outsider": "0x7c5B6D78b4c2ea90b74656684120334f0bC1Bb1A"
+  },
+  "checks": {
+    "deployedSourceMatchesRelease": true,
+    "contradictedClaimRejected": true,
+    "correctedRevisionAccepted": true,
+    "hashMismatchFailsClosed": true,
+    "duplicateContentDidNotAddRevision": true,
+    "browserWorkflowAccepted": true,
+    "unauthorizedSubmissionReverted": true,
+    "duplicateAssessmentReverted": true,
+    "duplicateContentReverted": true
+  },
+  "transactions": [
+    {
+      "hash": "0xc00b0bf48ee9933373956fab6cec14660403d89ecb7b2b7656ec845741399291",
+      "operation": "deploy",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      }
+    },
+    {
+      "hash": "0x06b0aaee83356d1dd5350f061f174553c717abd0d09439af7871533a89bb061f",
+      "operation": "create_order",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAk=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            9
+          ],
+          "readable": "1"
+        }
+      }
+    },
+    {
+      "hash": "0x287604aa3a7f25c374ae0ed77fb536d321cb055db5c8c025118111d5f1e9560f",
+      "operation": "submit_revision",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_ERROR",
+      "successful": false,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AU9ubHkgdGhlIGxvY2tlZCBhdXRob3IgbWF5IHN1Ym1pdCBhIHJldmlzaW9u",
+        "status": "rollback",
+        "payload": "Only the locked author may submit a revision"
+      }
+    },
+    {
+      "hash": "0xa3045a951b829e7698fb40c819a439ccd25d6dac9fcf2485ee8654e961ebaf59",
+      "operation": "submit_revision",
+      "role": "author",
+      "feeValue": "378622800010352",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAk=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            9
+          ],
+          "readable": "1"
+        }
+      }
+    },
+    {
+      "hash": "0x593bd1f161a4b307cc6de98778ca2a53b16d8c1274a0adefa4789267fc1fb442",
+      "operation": "evaluate",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      }
+    },
+    {
+      "hash": "0xce3fd0de0c1e71e23dd37595e286a3e773bdac45b1300ccdda8caee8024c1b4d",
+      "operation": "submit_revision",
+      "role": "author",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "ABE=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            17
+          ],
+          "readable": "2"
+        }
+      }
+    },
+    {
+      "hash": "0xb09f57e4b4d106acb089030edd39ba7d2b5db4a61aa99e438890ce966009aa99",
+      "operation": "create_order",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "ABE=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            17
+          ],
+          "readable": "2"
+        }
+      }
+    },
+    {
+      "hash": "0x564a77c43ac88b28c9369dc3508e785e34701d8165a7b8a1079aa4b1d6580a0a",
+      "operation": "evaluate",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      }
+    },
+    {
+      "hash": "0x4418244ea0d0360c351f17e50f036db368f9c1e345b8e6fbdce885324502fe76",
+      "operation": "submit_revision",
+      "role": "author",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAk=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            9
+          ],
+          "readable": "1"
+        }
+      }
+    },
+    {
+      "hash": "0xd8d5a0bd8c0cb45b089101cb82e3d2c9e97532813e9bdc0ebcc52f0ce37cdfd9",
+      "operation": "evaluate",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      }
+    },
+    {
+      "hash": "0xd9f5c7c394523573ab98790561a791a1a87b76230eead5119d033ad1d5a2434a",
+      "operation": "evaluate",
+      "role": "owner",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_ERROR",
+      "successful": false,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AVRoaXMgcmV2aXNpb24gYWxyZWFkeSBoYXMgYW4gYXNzZXNzbWVudDsgc3VibWl0IGEgYm91bmRlZCByZXZpc2lvbiB0byBjb3JyZWN0IGV2aWRlbmNl",
+        "status": "rollback",
+        "payload": "This revision already has an assessment; submit a bounded revision to correct evidence"
+      }
+    },
+    {
+      "hash": "0xd382a6c57e0efc2f0559ed9b65a699cd84e5d3a55aa566f0a5c40a8c10e204de",
+      "operation": "submit_revision",
+      "role": "author",
+      "feeValue": "40000000000033882",
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_ERROR",
+      "successful": false,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AVJlc2VhcmNoIGNvbnRlbnQgYWxyZWFkeSBhcHBlYXJlZCBpbiB0aGlzIG9yZGVyOyBjaGFuZ2luZyBsYWJlbHMgb3IgYXJyYXkgb3JkZXIgY2Fubm90IHRyaWdnZXIgYW5vdGhlciBhc3Nlc3NtZW50",
+        "status": "rollback",
+        "payload": "Research content already appeared in this order; changing labels or array order cannot trigger another assessment"
+      }
+    },
+    {
+      "hash": "0x69a3cbfa6db2cb0cfe30c3ce4651568a51ac86db70b1e1fc0f83305a575115c8",
+      "operation": "evaluate",
+      "role": "browser-independent-test-account",
+      "orderId": 3,
+      "revision": 1,
+      "status": "FINALIZED",
+      "execution": "FINISHED_WITH_RETURN",
+      "successful": true,
+      "blockHash": null,
+      "blockNumber": null,
+      "leaderResult": {
+        "raw": "AAA=",
+        "status": "return",
+        "payload": {
+          "raw": [
+            0
+          ],
+          "readable": "null"
+        }
+      }
+    }
+  ],
+  "orders": [
+    {
+      "order": {
+        "created_at": "2026-11-05T02:06:40.885548Z",
+        "id": 1,
+        "owner": "0x8b93883630350e4352887379c9a31889b1f3e680",
+        "policy_version": "research-receipt/1",
+        "revision_count": 2,
+        "spec": {
+          "allowed_hosts": [
+            "raw.githubusercontent.com"
+          ],
+          "as_of": "2026-11-05",
+          "author": "0xb2ccdfda39658ad96a637e8af4896b190493d1ec",
+          "chain": "EVM source only; no deployment claim",
+          "client_ref": "4fea70c1-bfcd-4963-ba85-1f4bbb57c6f7",
+          "criteria": [
+            {
+              "id": "permissions",
+              "required": true,
+              "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。"
+            },
+            {
+              "id": "withdrawals",
+              "required": true,
+              "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。"
+            },
+            {
+              "id": "audit",
+              "required": true,
+              "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。"
+            },
+            {
+              "id": "limitations",
+              "required": true,
+              "text": "明确研究的证据边界，不把未发现问题表述为安全或收益保证。"
+            }
+          ],
+          "protocol": "OpenZeppelin Ownable (commit-scoped)",
+          "source_roots": [
+            "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+          ],
+          "title": "OpenZeppelin Ownable · 公开源文件研究验收"
+        },
+        "spec_hash": "159022d9d8ec95bc6a3b394187fe2deb8edbda069a46334b01351c9f1f0098ba",
+        "status": "ACCEPTED"
+      },
+      "revisions": [
+        {
+          "submission": {
+            "content_hash": "89cf1bd989a1168f720df375acec5ef669bfca950935571e6531cd80a1208295",
+            "order_id": 1,
+            "previous_submission_hash": "",
+            "revision": 1,
+            "submission": {
+              "claims": [
+                {
+                  "criterion_id": "permissions",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "这份Ownable源码的transferOwnership任何人都可调用，不要求调用者是owner。"
+                },
+                {
+                  "criterion_id": "withdrawals",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。"
+                },
+                {
+                  "criterion_id": "audit",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。"
+                },
+                {
+                  "criterion_id": "limitations",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。"
+                }
+              ],
+              "report_body": "这份Ownable源码的transferOwnership任何人都可调用，不要求调用者是owner。\n本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。\n本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。\n本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。",
+              "report_title": "Ownable source-scoped research · initial",
+              "report_version": "v1",
+              "sources": [
+                {
+                  "byte_length": 3102,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol"
+                }
+              ]
+            },
+            "submission_hash": "60237c1ffe0fc7ac3bfc50707f4b21622c8668e5894f42f9be078c286fbb21f0",
+            "submitted_at": "2026-11-05T02:08:53.575847Z",
+            "submitted_by": "0xb2ccdfda39658ad96a637e8af4896b190493d1ec"
+          },
+          "assessment": {
+            "assessed_at": "2026-11-05T02:12:36.572577Z",
+            "content_hash": "89cf1bd989a1168f720df375acec5ef669bfca950935571e6531cd80a1208295",
+            "findings": [
+              {
+                "criterion_id": "permissions",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The claim states that 'transferOwnership' can be called by anyone, but the verified source code (OpenZeppelin Ownable.sol) shows that 'transferOwnership' is restricted by the 'onlyOwner' modifier, which requires the caller to be the current owner. The function '_checkOwner()' reverts if the caller is not the owner.",
+                "status": "CONTRADICTED"
+              },
+              {
+                "criterion_id": "withdrawals",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The claim and report explicitly state that only the Ownable module source code is submitted, with no evidence of withdrawal or redemption mechanisms. The criterion requires that if no mechanism is provided, it must be clearly stated as unknown, and no unsupported claims of immediate withdrawal can be made. The report adheres to this by stating '提现等待期与能否即时退出均为未知，不作即时提现承诺' (withdrawal waiting period and ability to exit immediately are unknown, no promise of immediate withdrawal). The source material (Ownable.sol) does not include any withdrawal or redemption logic, confirming the claim's accuracy.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "audit",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The claim and report accurately state that no audit report is included, and thus the audit status is unknown. This aligns with the criterion requiring acknowledgment of unknown audit status when no evidence is provided. The source material (Ownable.sol) does not contradict the claim, as it is a standalone module without audit evidence.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "limitations",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The report explicitly states the evidence boundary by clarifying that the assessment is limited to the specified commit of Ownable.sol and does not extend to any deployment state, protocol-wide security, or future returns. The source material (Ownable.sol) confirms the report's claim about `transferOwnership` being restricted to the current owner via the `onlyOwner` modifier, while the report correctly notes that the evidence does not cover deployment or broader protocol features (e.g., withdrawal processes or audits). The criterion's requirement to avoid overreaching claims is satisfied.",
+                "status": "SUPPORTED"
+              }
+            ],
+            "order_id": 1,
+            "policy_version": "research-receipt/1",
+            "revision": 1,
+            "scope": "Delivery acceptance against locked public evidence; not investment advice or a safety certification.",
+            "source_checks": [
+              {
+                "index": 0,
+                "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                "status": "VERIFIED"
+              }
+            ],
+            "spec_hash": "159022d9d8ec95bc6a3b394187fe2deb8edbda069a46334b01351c9f1f0098ba",
+            "submission_hash": "60237c1ffe0fc7ac3bfc50707f4b21622c8668e5894f42f9be078c286fbb21f0",
+            "verdict": "NOT_ACCEPTED"
+          }
+        },
+        {
+          "submission": {
+            "content_hash": "836dfc09c27ace584628e11666f629a87f4caa041f56747d25e2ac2b6ea53261",
+            "order_id": 1,
+            "previous_submission_hash": "60237c1ffe0fc7ac3bfc50707f4b21622c8668e5894f42f9be078c286fbb21f0",
+            "revision": 2,
+            "submission": {
+              "claims": [
+                {
+                  "criterion_id": "permissions",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "这份Ownable源码的transferOwnership受onlyOwner限制；renounceOwnership也只允许owner调用。它不能证明任意部署是否有升级权限。"
+                },
+                {
+                  "criterion_id": "withdrawals",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。"
+                },
+                {
+                  "criterion_id": "audit",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。"
+                },
+                {
+                  "criterion_id": "limitations",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。"
+                }
+              ],
+              "report_body": "这份Ownable源码的transferOwnership受onlyOwner限制；renounceOwnership也只允许owner调用。它不能证明任意部署是否有升级权限。\n本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。\n本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。\n本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。",
+              "report_title": "Ownable source-scoped research · corrected",
+              "report_version": "v2",
+              "sources": [
+                {
+                  "byte_length": 3102,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol"
+                }
+              ]
+            },
+            "submission_hash": "687d35e78c2158ad707fc407e694d97826a105fb83af804edab6101a574312e9",
+            "submitted_at": "2026-11-05T02:16:35.948269Z",
+            "submitted_by": "0xb2ccdfda39658ad96a637e8af4896b190493d1ec"
+          },
+          "assessment": {
+            "assessed_at": "2026-11-05T02:21:09.947007Z",
+            "content_hash": "836dfc09c27ace584628e11666f629a87f4caa041f56747d25e2ac2b6ea53261",
+            "findings": [
+              {
+                "criterion_id": "permissions",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The report and claim correctly state that the Ownable source code restricts `transferOwnership` and `renounceOwnership` functions to the `onlyOwner` modifier, as verified in the supplied source material (index 0). The report explicitly acknowledges that the source code does not prove deployment-specific upgrade permissions, aligning with the criterion's requirement to distinguish source file facts from real deployment states. The scope, version (commit-scoped), and time (as_of 2026-11-05) are justified.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "withdrawals",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The claim and report explicitly state that only the Ownable module source code is provided, with no evidence of withdrawal, redemption, or exit mechanisms. The criterion requires that materials either describe supported withdrawal/redeem/exit restrictions or clearly state they are unknown. The claim complies by stating '提现等待期与能否即时退出均为未知，不作即时提现承诺' (withdrawal waiting period and immediate exit capability are unknown, no promise of immediate withdrawal). The source material (Ownable.sol) does not include any withdrawal or redemption logic, confirming the claim's accuracy.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "audit",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The claim and report explicitly state that no audit report is included, the audit coverage version is unverifiable, and the audit status is unknown. This directly aligns with the criterion requiring accurate disclosure of audit scope/version or acknowledgment of unknown status. The source material (Ownable.sol) does not contradict this, as it is a standalone module without audit claims.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "limitations",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The report explicitly states the evidence boundary by clarifying that the assessment is limited to the specified commit (source 0) and does not extend to any actual deployment, overall protocol safety, or future returns. The source material (Ownable.sol) confirms the code-level access control mechanisms (onlyOwner modifier for transferOwnership and renounceOwnership), which aligns with the report's claims about the scoped review. The report's disclaimers about unknown audit status, withdrawal processes, and deployment specifics directly fulfill the criterion's requirement to avoid overstating safety or guarantees.",
+                "status": "SUPPORTED"
+              }
+            ],
+            "order_id": 1,
+            "policy_version": "research-receipt/1",
+            "revision": 2,
+            "scope": "Delivery acceptance against locked public evidence; not investment advice or a safety certification.",
+            "source_checks": [
+              {
+                "index": 0,
+                "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                "status": "VERIFIED"
+              }
+            ],
+            "spec_hash": "159022d9d8ec95bc6a3b394187fe2deb8edbda069a46334b01351c9f1f0098ba",
+            "submission_hash": "687d35e78c2158ad707fc407e694d97826a105fb83af804edab6101a574312e9",
+            "verdict": "ACCEPTED"
+          }
+        }
+      ]
+    },
+    {
+      "order": {
+        "created_at": "2026-11-05T02:16:39.816513Z",
+        "id": 2,
+        "owner": "0x8b93883630350e4352887379c9a31889b1f3e680",
+        "policy_version": "research-receipt/1",
+        "revision_count": 1,
+        "spec": {
+          "allowed_hosts": [
+            "raw.githubusercontent.com"
+          ],
+          "as_of": "2026-11-05",
+          "author": "0xb2ccdfda39658ad96a637e8af4896b190493d1ec",
+          "chain": "EVM source only; no deployment claim",
+          "client_ref": "79d776e9-7434-4d26-8315-1d2c9d4c1168",
+          "criteria": [
+            {
+              "id": "permissions",
+              "required": true,
+              "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。"
+            },
+            {
+              "id": "withdrawals",
+              "required": true,
+              "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。"
+            },
+            {
+              "id": "audit",
+              "required": true,
+              "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。"
+            },
+            {
+              "id": "limitations",
+              "required": true,
+              "text": "明确研究的证据边界，不把未发现问题表述为安全或收益保证。"
+            }
+          ],
+          "protocol": "OpenZeppelin Ownable (commit-scoped)",
+          "source_roots": [
+            "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+          ],
+          "title": "证据完整性负例 · 摘要不匹配"
+        },
+        "spec_hash": "69aa64d3ed857a70f062c1e46db3b902d42b20ee761d096c0d4a884261ce9a1c",
+        "status": "INSUFFICIENT_EVIDENCE"
+      },
+      "revisions": [
+        {
+          "submission": {
+            "content_hash": "9d50f62887231fcd026a6997dca5d658c44da999d05d4bfb544c5386512dd585",
+            "order_id": 2,
+            "previous_submission_hash": "",
+            "revision": 1,
+            "submission": {
+              "claims": [
+                {
+                  "criterion_id": "permissions",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "这份Ownable源码的transferOwnership受onlyOwner限制；renounceOwnership也只允许owner调用。它不能证明任意部署是否有升级权限。"
+                },
+                {
+                  "criterion_id": "withdrawals",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。"
+                },
+                {
+                  "criterion_id": "audit",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。"
+                },
+                {
+                  "criterion_id": "limitations",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。"
+                }
+              ],
+              "report_body": "这份Ownable源码的transferOwnership受onlyOwner限制；renounceOwnership也只允许owner调用。它不能证明任意部署是否有升级权限。\n本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。\n本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。\n本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。",
+              "report_title": "Ownable source-scoped research · corrected",
+              "report_version": "v1",
+              "sources": [
+                {
+                  "byte_length": 3102,
+                  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                  "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol"
+                }
+              ]
+            },
+            "submission_hash": "61bebd607f760238a64080a5e4603d6b5056a235b3daa824b52c62467e881a89",
+            "submitted_at": "2026-11-05T02:21:13.593082Z",
+            "submitted_by": "0xb2ccdfda39658ad96a637e8af4896b190493d1ec"
+          },
+          "assessment": {
+            "assessed_at": "2026-11-05T02:26:50.864550Z",
+            "content_hash": "9d50f62887231fcd026a6997dca5d658c44da999d05d4bfb544c5386512dd585",
+            "findings": [
+              {
+                "criterion_id": "permissions",
+                "evidence_indices": [],
+                "reason": "At least one cited source is missing, changed, unavailable, or not valid UTF-8.",
+                "status": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "criterion_id": "withdrawals",
+                "evidence_indices": [],
+                "reason": "At least one cited source is missing, changed, unavailable, or not valid UTF-8.",
+                "status": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "criterion_id": "audit",
+                "evidence_indices": [],
+                "reason": "At least one cited source is missing, changed, unavailable, or not valid UTF-8.",
+                "status": "INSUFFICIENT_EVIDENCE"
+              },
+              {
+                "criterion_id": "limitations",
+                "evidence_indices": [],
+                "reason": "At least one cited source is missing, changed, unavailable, or not valid UTF-8.",
+                "status": "INSUFFICIENT_EVIDENCE"
+              }
+            ],
+            "order_id": 2,
+            "policy_version": "research-receipt/1",
+            "revision": 1,
+            "scope": "Delivery acceptance against locked public evidence; not investment advice or a safety certification.",
+            "source_checks": [
+              {
+                "index": 0,
+                "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                "status": "HASH_MISMATCH"
+              }
+            ],
+            "spec_hash": "69aa64d3ed857a70f062c1e46db3b902d42b20ee761d096c0d4a884261ce9a1c",
+            "submission_hash": "61bebd607f760238a64080a5e4603d6b5056a235b3daa824b52c62467e881a89",
+            "verdict": "INSUFFICIENT_EVIDENCE"
+          }
+        }
+      ]
+    },
+    {
+      "order": {
+        "created_at": "2026-11-05T02:29:56.545312Z",
+        "id": 3,
+        "owner": "0x953153d12180308d6c450c8ac0b6825bc2859498",
+        "policy_version": "research-receipt/1",
+        "revision_count": 1,
+        "spec": {
+          "allowed_hosts": [
+            "raw.githubusercontent.com"
+          ],
+          "as_of": "2026-11-05",
+          "author": "0x953153d12180308d6c450c8ac0b6825bc2859498",
+          "chain": "EVM source only; no deployment claim",
+          "client_ref": "f635436f-5e33-4bbf-a809-b0c03a962101",
+          "criteria": [
+            {
+              "id": "permissions",
+              "required": true,
+              "text": "说明材料可支持的管理员与升级权限，材料未涉及的权限明确标为未知，区分源文件事实和真实部署状态。"
+            },
+            {
+              "id": "withdrawals",
+              "required": true,
+              "text": "说明材料可支持的提现、赎回或退出限制；材料未提供机制时明确未知，不得无证据承诺即时退出。"
+            },
+            {
+              "id": "audit",
+              "required": true,
+              "text": "准确说明审计覆盖范围及版本，未获得审计证据必须承认未知。"
+            },
+            {
+              "id": "limitations",
+              "required": true,
+              "text": "明确研究的证据边界，不把未发现问题表述为安全或收益保证。"
+            }
+          ],
+          "protocol": "OpenZeppelin Ownable (commit-scoped)",
+          "source_roots": [
+            "raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/"
+          ],
+          "title": "OpenZeppelin Ownable · 公开源文件研究验收"
+        },
+        "spec_hash": "008ff6933a7952b947621df0cdee9dc8c5b680e4b4d891ec500dfd58d6ac4652",
+        "status": "ACCEPTED"
+      },
+      "revisions": [
+        {
+          "submission": {
+            "content_hash": "836dfc09c27ace584628e11666f629a87f4caa041f56747d25e2ac2b6ea53261",
+            "order_id": 3,
+            "previous_submission_hash": "",
+            "revision": 1,
+            "submission": {
+              "claims": [
+                {
+                  "criterion_id": "permissions",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "这份Ownable源码的transferOwnership受onlyOwner限制；renounceOwnership也只允许owner调用。它不能证明任意部署是否有升级权限。"
+                },
+                {
+                  "criterion_id": "withdrawals",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。"
+                },
+                {
+                  "criterion_id": "audit",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。"
+                },
+                {
+                  "criterion_id": "limitations",
+                  "evidence_indices": [
+                    0
+                  ],
+                  "statement": "本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。"
+                }
+              ],
+              "report_body": "这份Ownable源码的transferOwnership受onlyOwner限制；renounceOwnership也只允许owner调用。它不能证明任意部署是否有升级权限。\n本次只提交Ownable权限模块源码，没有协议提现或赎回流程证据，因此提现等待期与能否即时退出均为未知，不作即时提现承诺。\n本次材料不含审计报告，无法核查具体审计覆盖版本，审计状态未知，不宣称任何部署已通过安全审计。\n本报告只核查指定commit文件及上述陈述，不证明某个实际部署状态、协议整体安全或未来收益。",
+              "report_title": "浏览器端到端 · Ownable源码审查",
+              "report_version": "v1",
+              "sources": [
+                {
+                  "byte_length": 3102,
+                  "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                  "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol"
+                }
+              ]
+            },
+            "submission_hash": "d678a41e784f547c8be46aa3bf2abe52e2ea0a404bb4b2f1d47759056c1db3d5",
+            "submitted_at": "2026-11-05T02:37:52.084589Z",
+            "submitted_by": "0x953153d12180308d6c450c8ac0b6825bc2859498"
+          },
+          "assessment": {
+            "assessed_at": "2026-11-05T02:38:48.528647Z",
+            "content_hash": "836dfc09c27ace584628e11666f629a87f4caa041f56747d25e2ac2b6ea53261",
+            "findings": [
+              {
+                "criterion_id": "permissions",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "Source 0 shows `transferOwnership(address)` and `renounceOwnership()` are both `public ... onlyOwner`, so the report/claim correctly identifies owner-restricted admin actions in this Ownable source. The provided material is only source code for Ownable and contains no proxy/upgrade mechanism or deployment-specific state, so the report appropriately limits scope and states that any actual deployment's upgrade permissions are not proven and thus unknown.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "withdrawals",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The only verified source is OpenZeppelin Ownable.sol, which defines ownership/onlyOwner mechanics but provides no withdrawal, redemption, or exit mechanism. The report and claim correctly state that with only this module's source, withdrawal waiting period and instant exit are unknown and no immediate-withdrawal promise is supported.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "audit",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The criterion requires accurately stating audit scope/version and admitting unknowns if no audit evidence exists. The only verified source is Ownable.sol source code at the specified commit/version context, and it contains no audit report or audit attestation. The report/claim explicitly says no audit report is included, the audited version cannot be verified, and audit status is unknown, without claiming any deployment was audited. That matches the available evidence and scoped limitation.",
+                "status": "SUPPORTED"
+              },
+              {
+                "criterion_id": "limitations",
+                "evidence_indices": [
+                  0
+                ],
+                "reason": "The report explicitly states its evidence boundary and avoids treating absence of findings as security or profit assurance: it says the review is limited to the specified Ownable source/commit-scoped material, does not prove any actual deployment state, cannot establish withdrawal timing, audit status is unknown, and does not claim overall safety or future收益. Source 0 supports these limits because it is only the Ownable.sol source file and shows owner-gated functions but provides no evidence about deployments, audits, withdrawals, or returns.",
+                "status": "SUPPORTED"
+              }
+            ],
+            "order_id": 3,
+            "policy_version": "research-receipt/1",
+            "revision": 1,
+            "scope": "Delivery acceptance against locked public evidence; not investment advice or a safety certification.",
+            "source_checks": [
+              {
+                "index": 0,
+                "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+                "status": "VERIFIED"
+              }
+            ],
+            "spec_hash": "008ff6933a7952b947621df0cdee9dc8c5b680e4b4d891ec500dfd58d6ac4652",
+            "submission_hash": "d678a41e784f547c8be46aa3bf2abe52e2ea0a404bb4b2f1d47759056c1db3d5",
+            "verdict": "ACCEPTED"
+          }
+        }
+      ]
+    }
+  ]
+}

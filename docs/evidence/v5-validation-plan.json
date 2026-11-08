@@ -1,0 +1,445 @@
+{
+  "format": "research-receipt/v5-prelocked-plan/1",
+  "policyVersion": "research-receipt/5",
+  "frozenBeforeExecutionAt": "2026-11-05T09:38:19.401Z",
+  "sourceCommitment": {
+    "file": "contracts/research_receipt.py",
+    "sha256": "60b89ea573ca9abba76c4432c0ae38195c5405e85bad7f492b77000d9b6b9d65"
+  },
+  "fixtureFile": "artifacts/bradbury/v5-e2e-input.json",
+  "fixtureSha256": "f34e7384c774f5c048c1343b5f865d738c29df8dbe4f7cfd07c4f776208188d8",
+  "feeProfileSha256": "df9be739a22efd5460db67d6bbb688d0bec87f56f7d163582e4269960ede7415",
+  "expected": [
+    {
+      "id": "positive",
+      "spec": "spec",
+      "submission": "positive",
+      "statuses": [
+        "SUPPORTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "ACCEPTED"
+    },
+    {
+      "id": "negative",
+      "spec": "spec",
+      "submission": "negative",
+      "statuses": [
+        "CONTRADICTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "CONTRADICTED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "NOT_ACCEPTED"
+    },
+    {
+      "id": "strictUnknown",
+      "spec": "specStrict",
+      "submission": "positive",
+      "statuses": [
+        "SUPPORTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "FULFILLED",
+        "INSUFFICIENT",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "id": "hashMismatch",
+      "spec": "specMissing",
+      "submission": "missing",
+      "statuses": [
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_UNAVAILABLE",
+        "SOURCE_UNAVAILABLE"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "INSUFFICIENT",
+        "INSUFFICIENT",
+        "INSUFFICIENT"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "modelCalls": 0
+    },
+    {
+      "id": "contradictionWithUnknown",
+      "spec": "spec",
+      "submission": "contradictionWithUnknown",
+      "statuses": [
+        "CONTRADICTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "CONTRADICTED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "NOT_ACCEPTED",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "falseCaution",
+      "spec": "spec",
+      "submission": "falseCaution",
+      "statuses": [
+        "CONTRADICTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "CONTRADICTED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "NOT_ACCEPTED",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "unsupportedPromise",
+      "spec": "spec",
+      "submission": "unsupportedPromise",
+      "statuses": [
+        "SUPPORTED",
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "unknownWithPromise",
+      "spec": "spec",
+      "submission": "unknownWithPromise",
+      "statuses": [
+        "SUPPORTED",
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "deploymentOverreach",
+      "spec": "spec",
+      "submission": "deploymentOverreach",
+      "statuses": [
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "irrelevantTruth",
+      "spec": "spec",
+      "submission": "irrelevantTruth",
+      "statuses": [
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "initialValidation": "local semantic/guard tests; not automatically sent to a model"
+    },
+    {
+      "id": "missingClaim",
+      "spec": "spec",
+      "submission": "missingClaim",
+      "statuses": [
+        "NOT_ESTABLISHED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "INSUFFICIENT",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "INSUFFICIENT_EVIDENCE",
+      "omittedCriterionModelCalls": 0,
+      "initialValidation": "local guard test"
+    },
+    {
+      "id": "unboundBody",
+      "spec": "spec",
+      "submission": "unboundBody",
+      "normalizationReject": true,
+      "modelCalls": 0
+    },
+    {
+      "id": "reorderedClaims",
+      "spec": "spec",
+      "submission": "reorderedClaims",
+      "statuses": [
+        "SUPPORTED",
+        "SCOPED_UNKNOWN",
+        "SCOPED_UNKNOWN",
+        "SUPPORTED"
+      ],
+      "delivery": [
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED",
+        "FULFILLED"
+      ],
+      "verdict": "ACCEPTED",
+      "normalizationMatches": "positive",
+      "initialValidation": "local normalization only"
+    }
+  ],
+  "expectedSnapshots": [
+    {
+      "id": "negative",
+      "spec": "spec",
+      "submission": "negative",
+      "orderId": 1,
+      "revision": 1,
+      "binding": {
+        "policy_version": "research-receipt/5",
+        "order_id": 1,
+        "revision": 1,
+        "spec_hash": "00d2849dc64c1a2252811edd1a8af4e8ed340d11fe5c5aeff405da05c0de5eb4",
+        "submission_hash": "14b27e4bc9c215316b5c78ddfc06f9dd7646234372834dfc2972f84013da8339",
+        "content_hash": "5d02e97046262ab81a7eaff3e3b0010ca840cafa5516387c64732a056df8f62b",
+        "sources": [
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+            "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+            "byte_length": 3102
+          },
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+            "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+            "byte_length": 860
+          }
+        ]
+      },
+      "sourceChecks": [
+        {
+          "index": 0,
+          "status": "VERIFIED",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+        },
+        {
+          "index": 1,
+          "status": "VERIFIED",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+        }
+      ],
+      "snapshotHash": "aef09acba1f2064f6b9a5fe023a9b94dadea8ce3792437af88d10b970f493cd1",
+      "materialByteLengths": [
+        3102,
+        860
+      ]
+    },
+    {
+      "id": "positive",
+      "spec": "spec",
+      "submission": "positive",
+      "orderId": 1,
+      "revision": 2,
+      "binding": {
+        "policy_version": "research-receipt/5",
+        "order_id": 1,
+        "revision": 2,
+        "spec_hash": "00d2849dc64c1a2252811edd1a8af4e8ed340d11fe5c5aeff405da05c0de5eb4",
+        "submission_hash": "3f53c463d237f2beb58f2a42f0e294814a24309fa95437147acfad4278bb0dd4",
+        "content_hash": "e890fd7bd1faf5bf6b2f03505166f88f30184f132071df4f131fff5123d6a37e",
+        "sources": [
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+            "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+            "byte_length": 3102
+          },
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+            "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+            "byte_length": 860
+          }
+        ]
+      },
+      "sourceChecks": [
+        {
+          "index": 0,
+          "status": "VERIFIED",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+        },
+        {
+          "index": 1,
+          "status": "VERIFIED",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+        }
+      ],
+      "snapshotHash": "a2025ebc4584762c5547516a5457882ed5be263866d8357cb407f933a56d0080",
+      "materialByteLengths": [
+        3102,
+        860
+      ]
+    },
+    {
+      "id": "hashMismatch",
+      "spec": "specMissing",
+      "submission": "missing",
+      "orderId": 2,
+      "revision": 1,
+      "binding": {
+        "policy_version": "research-receipt/5",
+        "order_id": 2,
+        "revision": 1,
+        "spec_hash": "f448a4815e3ee5b29c4e9cff96f55d0f1510ca76e4ee0f47bca7250d2ab97091",
+        "submission_hash": "75e42300855d8e3bb84f8120b831e38c91442725093a147cc589feef67698d2f",
+        "content_hash": "62c92f927db84b83fe1144bfee7b4b362adff3755e04f33c55e1578fefae550b",
+        "sources": [
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+            "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "byte_length": 3102
+          },
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+            "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+            "byte_length": 860
+          }
+        ]
+      },
+      "sourceChecks": [
+        {
+          "index": 0,
+          "status": "HASH_MISMATCH",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+        },
+        {
+          "index": 1,
+          "status": "VERIFIED",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+        }
+      ],
+      "snapshotHash": "416647c2b822f32aa5502fa0e74e08056997d6a4109e25cc887a87a2533989f9",
+      "materialByteLengths": [
+        null,
+        860
+      ]
+    },
+    {
+      "id": "strictUnknown",
+      "spec": "specStrict",
+      "submission": "positive",
+      "orderId": 4,
+      "revision": 1,
+      "binding": {
+        "policy_version": "research-receipt/5",
+        "order_id": 4,
+        "revision": 1,
+        "spec_hash": "dabcd18c9692ef38f83571decf2e715eed8e35e59ef69480872cb69e3d099f33",
+        "submission_hash": "3f53c463d237f2beb58f2a42f0e294814a24309fa95437147acfad4278bb0dd4",
+        "content_hash": "e890fd7bd1faf5bf6b2f03505166f88f30184f132071df4f131fff5123d6a37e",
+        "sources": [
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/access/Ownable.sol",
+            "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+            "byte_length": 3102
+          },
+          {
+            "url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/3e6c86392c97fbc30d3d20a378a6f58beba08eba/contracts/utils/Context.sol",
+            "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a",
+            "byte_length": 860
+          }
+        ]
+      },
+      "sourceChecks": [
+        {
+          "index": 0,
+          "status": "VERIFIED",
+          "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+        },
+        {
+          "index": 1,
+          "status": "VERIFIED",
+          "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+        }
+      ],
+      "snapshotHash": "31a91b5218b9682b69c967b7713e04ef9a84158e8547b8a25aad2a46ea992a4a",
+      "materialByteLengths": [
+        3102,
+        860
+      ]
+    }
+  ],
+  "guardExpectations": [
+    "Missing/invalid evidence_requirement rejects order",
+    "Model-supplied delivery_status or SOURCE_UNAVAILABLE rejected",
+    "Format repair bounded globally to one request",
+    "False supported or false conservative leader classification rejected by independent comparison",
+    "Forged delivery, duplicate/missing finding, invalid references or source proof rejected",
+    "Optional contradiction cannot produce ACCEPTED",
+    "Report body must exactly equal normalized statements in locked-criterion order; unbound content rejected",
+    "Every per-criterion prompt excludes all other statements and full report body",
+    "evaluate before snapshot rejected with no state change",
+    "duplicate verify rejected; snapshot immutable",
+    "snapshot bound to current order/revision/spec/submission/content/all sources",
+    "assessment snapshot_hash and source_checks exactly match accepted snapshot",
+    "failure sources have null material and cannot be rescued by model or allowed unknown"
+  ],
+  "requiredPublicCaseCount": 24,
+  "rule": "Preserve all four original criteria and exact classification oracles. Only references are renewed; evidence and statements are unchanged. Source verification and model assessment are separate transactions. No automatic retries.",
+  "availabilityLimit": "One immutable snapshot per revision, including a failed fetch. A transient UNAVAILABLE is therefore fixed for that revision; evaluate the actual evidence result, then genuinely correct evidence for a new revision. Changing labels or meaningless prose is not a supported recovery.",
+  "historicalEvidence": "Retain all v1/v2/v4 attempts and source-only/inline diagnostics separately; isolated diagnostic success is not business E2E success."
+}

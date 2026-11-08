@@ -1,0 +1,41 @@
+// Two schema calls and at most one default EVM estimate. Never signs or sends.
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {encodeFunctionData} from 'viem';
+import {connectBradbury,quoteDevelopmentProfile,publicJson,BRADBURY} from './bradbury-client.mjs';
+import {deploymentData} from './probe-v3-assessment.mjs';
+import {verifyRequest,summarizeRevert} from './diagnose-deploy-gas.mjs';
+import {sha256} from './probe-public-codec.mjs';
+assert.ok(process.argv.includes('--run'));
+const canonical=v=>Array.isArray(v)?'['+v.map(canonical).join(',')+']':v&&typeof v==='object'?'{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}':JSON.stringify(v);
+const bytes=await readFile('docs/evidence/compact-probe-transport-plan.json'),p=JSON.parse(bytes);
+const original=await readFile('contracts/research_receipt_sufficiency_probe.py'),compact=await readFile(p.sourceFile),fixture=await readFile(p.fixtureFile),fee=await readFile('src/fee-profile.json');
+assert.equal(sha256(original),p.originalSourceSha256);assert.equal(sha256(compact),p.sourceSha256);assert.equal(sha256(fixture),p.fixtureSha256);assert.equal(sha256(fee),p.feeProfileSha256);
+assert.equal(sha256(await readFile(p.buildProofFile)),p.buildProofSha256);assert.equal(sha256(await readFile(p.modelEvidenceFile)),p.modelEvidenceSha256);
+const file='artifacts/bradbury/sufficiency-probe/compact-transport-check.json';
+const report={format:'research-receipt/compact-transport-check/1',startedAt:new Date().toISOString(),transportPlanSha256:sha256(bytes),sourceSha256:p.sourceSha256,canonicalSourceSha256:p.originalSourceSha256,schemaCallsStarted:0,estimateCallsStarted:0,signatures:0,chainTransactionsSent:0,modelCalls:0};
+await writeFile(file,publicJson(report)+'\n',{flag:'wx'});
+const save=()=>writeFile(file,publicJson(report)+'\n');
+try{
+ const c=await connectBradbury();report.network=c.metadata;
+ report.schemaCallsStarted=2;await save();
+ const schemas=await Promise.allSettled([c.client.getContractSchemaForCode(original.toString('utf8')),c.client.getContractSchemaForCode(compact.toString('utf8'))]);
+ report.schemas=schemas.map(s=>s.status==='fulfilled'?{status:'fulfilled',value:s.value}:{status:'rejected',name:s.reason?.name||'ERROR'});await save();
+ assert.ok(schemas.every(s=>s.status==='fulfilled'),'Official schema request failed');
+ assert.equal(canonical(schemas[0].value),canonical(schemas[1].value),'Official schemas differ');report.schemasExactlyEqual=true;
+ const {quote}=await quoteDevelopmentProfile(c.client),localSeconds=Math.floor(Date.now()/1000);
+ const params={sender:p.actor,recipient:'0x0000000000000000000000000000000000000000',numOfInitialValidators:BigInt(c.chain.defaultNumberOfInitialValidators),maxRotations:BigInt(c.chain.defaultConsensusMaxRotations),validUntil:BigInt(localSeconds+3600),saltNonce:0n,userValue:0n,feesDistribution:quote.distribution,txCalldata:deploymentData(compact.toString('utf8'),[JSON.stringify(JSON.parse(fixture).positive)]),messageAllocations:[]};
+ const request={from:p.actor,to:c.metadata.addresses.ConsensusMain,data:encodeFunctionData({abi:c.chain.consensusMainContract.abi,functionName:'addTransaction',args:[params]}),value:'0x'+quote.feeValue.toString(16)};
+ const checked=verifyRequest(request,{code:compact.toString('utf8'),constructorInput:JSON.parse(fixture).positive,profile:JSON.parse(fee)});
+ report.unsignedRequest={...checked,quote,mode:'fresh-sdk-equivalent-compact-artifact',gasOverride:false,requestDataSha256:sha256(request.data)};
+ report.estimateCallsStarted=1;await save();
+ const response=await fetch(BRADBURY.rpcUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_estimateGas',params:[request]}),signal:AbortSignal.timeout(30000)});
+ report.estimateResponse={httpStatus:response.status,response:await response.json()};await save();
+ const result=report.estimateResponse.response.result;
+ report.estimateSucceeded=response.ok&&!report.estimateResponse.response.error&&typeof result==='string'&&/^0x[0-9a-f]+$/i.test(result)&&BigInt(result)>0n;
+ if(report.estimateSucceeded)report.estimatedGas=String(BigInt(result));
+ else report.revert=summarizeRevert(report.estimateResponse.response.error);
+ report.transportReadOnlyGatePassed=report.schemasExactlyEqual&&report.estimateSucceeded;
+}catch(error){report.transportReadOnlyGatePassed=false;report.error={name:error.name,category:error instanceof assert.AssertionError?error.message:'READ_ONLY_CHECK_ABORTED'};}
+report.completedAt=new Date().toISOString();await save();
+console.log(publicJson({sourceSha256:p.sourceSha256,schemasExactlyEqual:report.schemasExactlyEqual||false,estimateSucceeded:report.estimateSucceeded||false,estimatedGas:report.estimatedGas||null,transportReadOnlyGatePassed:report.transportReadOnlyGatePassed,error:report.error||null,record:file,chainTransactionsSent:0,modelCalls:0}));

@@ -1,0 +1,610 @@
+{
+  "format": "research-receipt/typed-review-probe-plan/1",
+  "frozenBeforeExecutionAt": "2026-11-05T11:03:57.634633+00:00",
+  "sourceFile": "contracts/research_receipt_typed_probe.py",
+  "sourceSha256": "db275c89e769e158e93db9632a2f0a61f5284e7d0048a064be372196293b77f3",
+  "probeVersion": "research-receipt/typed-review-probe/1",
+  "fixtureFile": "artifacts/bradbury/typed-probe-input.json",
+  "fixtureSha256": "d83ad1fc3877a6dc72ff5f2719ab8ff3ce0abaf253d490a9d5c5551732ec7aa9",
+  "feeProfileSha256": "df9be739a22efd5460db67d6bbb688d0bec87f56f7d163582e4269960ede7415",
+  "simulationOrder": [
+    "positive",
+    "negative",
+    "falseCautionOtherSource",
+    "unknownWithPromise",
+    "boundaryIncomplete"
+  ],
+  "committeeOrder": [
+    "positive",
+    "negative"
+  ],
+  "expected": [
+    {
+      "id": "positive",
+      "contentHash": "2d6daf304becc794f3a96cf8ad689869eece66aa74166b1c7f95c8f11f109a4c",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "f637bd30ebcdd9cc061e93a44b910e5eda8edfe8721fd41ccdc1ba9d5e4b9f26",
+        "assessment": {
+          "verdict": "ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "factual_assertion",
+              "validity": "VALID",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "negative",
+      "contentHash": "2af1011153709f436e322a8595a5afa1306aae55c6dbaf1cb72a58bdecc3add8",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "ef225fc727ddbeda5538c61ab4460a015b009d7e5835cf81cac26c1d3e5e93f1",
+        "assessment": {
+          "verdict": "NOT_ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "factual_assertion",
+              "validity": "CONTRADICTED",
+              "status": "CONTRADICTED",
+              "delivery_status": "CONTRADICTED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "strictUnknown",
+      "contentHash": "2d6daf304becc794f3a96cf8ad689869eece66aa74166b1c7f95c8f11f109a4c",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "eff2c8260a74c456e02e8c0116f06ebf276cab06a54ab7de361df733c93d0259",
+        "submission_hash": "f637bd30ebcdd9cc061e93a44b910e5eda8edfe8721fd41ccdc1ba9d5e4b9f26",
+        "assessment": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "factual_assertion",
+              "validity": "VALID",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "falseCautionOtherSource",
+      "contentHash": "45b33f11885672969aeee4ea2e56fe4bca593990bb47e22cf4dc9b215ca81e28",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "125790de70ab131580597c86cca833c8dfe6ea6632dadf02eda4fa1d453eaf8a",
+        "assessment": {
+          "verdict": "NOT_ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "unknown_disclosure",
+              "validity": "CONTRADICTED",
+              "status": "CONTRADICTED",
+              "delivery_status": "CONTRADICTED",
+              "evidence_indices": [
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "unknownWithPromise",
+      "contentHash": "7e120afde66c657d3358064592d5e17e87907983a41d7a790e0db5370721597b",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "178cccdad9aaf45ba2a3de5228d3cf04c417ec48c64884bd0cd5fd62639fce38",
+        "assessment": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "factual_assertion",
+              "validity": "VALID",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "NOT_ESTABLISHED",
+              "status": "NOT_ESTABLISHED",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": []
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "contradictionWithUnknown",
+      "contentHash": "aea441cdd472bc0902398e76cc9ed34d2c3eb6120183bb5d646d43ed5e087708",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "97300c172cf73b6b0d3031af44e17a1968c1ef021aac4716e762527036045824",
+        "assessment": {
+          "verdict": "NOT_ACCEPTED",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "unknown_disclosure",
+              "validity": "CONTRADICTED",
+              "status": "CONTRADICTED",
+              "delivery_status": "CONTRADICTED",
+              "evidence_indices": [
+                0
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "boundaryIncomplete",
+      "contentHash": "75e73d20af95acc2334c097609364e4caf5f6e30b4ea8d708c94d012f613e547",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "f3f78d2cbae6fa2ad3628ff6f2ad94d74f1428edf10aa5c362162810b64980ce",
+        "assessment": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "factual_assertion",
+              "validity": "VALID",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "NOT_ESTABLISHED",
+              "status": "NOT_ESTABLISHED",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": []
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "unknownAsFactual",
+      "contentHash": "2d6daf304becc794f3a96cf8ad689869eece66aa74166b1c7f95c8f11f109a4c",
+      "expectedReceipt": {
+        "probe_version": "research-receipt/typed-review-probe/1",
+        "spec_hash": "f937cd6004f642253036518ab43812ed6fa4fbf938a99535875f81ea0a3d8f55",
+        "submission_hash": "14a4c5fbdb220e1b4ec19a5a7d184e0f97c209f6effdb5022abf81c80d94426a",
+        "assessment": {
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "findings": [
+            {
+              "criterion_id": "permissions",
+              "claim_type": "factual_assertion",
+              "validity": "VALID",
+              "status": "SUPPORTED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "withdrawals",
+              "claim_type": "unknown_disclosure",
+              "validity": "VALID",
+              "status": "SCOPED_UNKNOWN",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "criterion_id": "audit",
+              "claim_type": "factual_assertion",
+              "validity": "NOT_ESTABLISHED",
+              "status": "NOT_ESTABLISHED",
+              "delivery_status": "INSUFFICIENT",
+              "evidence_indices": []
+            },
+            {
+              "criterion_id": "limitations",
+              "claim_type": "boundary_disclosure",
+              "validity": "VALID",
+              "status": "BOUNDARY_DISCLOSED",
+              "delivery_status": "FULFILLED",
+              "evidence_indices": [
+                0,
+                1
+              ]
+            }
+          ],
+          "source_checks": [
+            {
+              "index": 0,
+              "status": "VERIFIED",
+              "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+            },
+            {
+              "index": 1,
+              "status": "VERIFIED",
+              "sha256": "9c1cc43aa4a2bde5c7dea0d4830cd42c54813ff883e55c8d8f12e6189bf7f10a"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "executionLimits": {
+    "genCalls": 10,
+    "pairsPerCase": 1,
+    "committeeDeployments": 2,
+    "automaticRetries": 0,
+    "httpCallsPerIndependentExecution": 0,
+    "initialModelCallsPerIndependentExecution": 4,
+    "maximumGlobalFormatRepairsPerIndependentExecution": 1,
+    "activeAppeals": 0,
+    "topUps": 0
+  },
+  "gates": [
+    "All offline guards and independent review pass before simulations.",
+    "Every prior simulation must match the entire prelocked projection; any failure stops all following cases and committee deployments.",
+    "Strict/allow unknown share identical model prompts and differ only in deterministic delivery; no extra sampling.",
+    "Committee positive then negative, once each, only after all five pairs pass; stop on first failure.",
+    "Committee proof requires accepted finalized RETURN, source/sender/constructor/inclusion identity and complete latest-final receipt equality."
+  ],
+  "migration": [
+    "Separate new typed schema; original v5 source, failed fixture, expected oracle and attempts remain unchanged.",
+    "Unknown-disclosure scope explicitly covers both submitted source files, including sources omitted from selected author citations.",
+    "Boundary requirement explicitly enumerates derived overrides, proxies, actual deployments and safety/return guarantees; BOUNDARY_DISCLOSED is not an underlying factual-safety finding.",
+    "Valid corpus-wide unknown disclosure must cite every reviewed material; legal citation sets are sorted without adding or removing members."
+  ],
+  "offlineOnlyControls": [
+    "falsePermissionsAsBoundary normalization rejects before model execution",
+    "unknownAsFactual cannot satisfy factual requested evidence",
+    "contradictionWithUnknown retains contradiction precedence",
+    "bad inline bytes reject before models",
+    "claim-type-only changes preserve content fingerprint",
+    "strict/allow prompt byte equality",
+    "invalid citations and changed validity during format repair fail closed"
+  ],
+  "limits": [
+    "Unsigned gen_call pairs are real model executions, not on-chain committee consensus.",
+    "Independent committee deployments do not prove production lifecycle or broad model reliability.",
+    "Private validator configuration and timeout causes remain unknown; allocations are not calibrated resource bounds.",
+    "Any later production schema must independently bind typed spec/submission, immutable snapshot and client export/resume state, then pass a new complete E2E suite."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "format": "research-receipt/historical-stored-user-error-validation/1",
+  "observedAt": "2026-11-05T22:51:04.059Z",
+  "historicalPolicy": "research-receipt/5",
+  "notV6Execution": true,
+  "method": "gen_getTransactionData",
+  "modelCalls": 0,
+  "chainTransactionsSent": 0,
+  "rawRecordSha256": "7226c9957dc2416cfba1d7442d54bc886335c42af1388e2d90b4404d03623894",
+  "proof": {
+    "verified": true,
+    "source": "gen_getTransactionData-stored-only",
+    "round": 0,
+    "protocolTxId": "0x18cd267e1499b06742f6cff09eb25d4fdecf854bc9da3b80de52c512127d650c",
+    "executionHash": "0xdae72dfe00490bf73f63d212e67fad4e58c8ac2d2f187b2bc06ca16e8a9a709c",
+    "encoding": "genvm-calldata-user-error-map/1",
+    "ownUserError": "Verify evidence before assessment",
+    "returnDataSha256": "0ea96b79d574cac472ae68b89061e02b031d61a09ed2edf0e0b936ca4086bdc4",
+    "returnDataBytes": 924
+  }
+}

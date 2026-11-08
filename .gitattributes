@@ -1,0 +1,5 @@
+# Contract fingerprints must reproduce byte-for-byte on Windows and Unix.
+*.py text eol=lf
+*.json text eol=lf
+*.sol text eol=lf
+tests/fixtures/OPENZEPPELIN-LICENSE text eol=lf
