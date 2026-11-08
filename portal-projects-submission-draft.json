@@ -1,0 +1,52 @@
+{
+  "prepared_date_beijing": "2026-11-08",
+  "application_date": "2026/11/08",
+  "publication_status": "published_github_and_pages_ready_for_human_verification",
+  "category": "Projects",
+  "name": "ResearchReceipt",
+  "primary_tag_options": [
+    "AI & Agents",
+    "AI 与智能体",
+    "Dispute Resolution",
+    "争议解决"
+  ],
+  "secondary_tag_options": [
+    "Evidence Assessment",
+    "证据评估",
+    "Research Verification",
+    "研究核验"
+  ],
+  "tagline": "A GenLayer research delivery workbench that locks buyer criteria, commit-pinned GitHub sources, and four-field unknown disclosures for verifiable consensus receipts.",
+  "tagline_chars": 165,
+  "description": "ResearchReceipt is a bilingual (EN default / ZH switchable) web app and GenLayer Intelligent Contract (policy research-receipt/6) for reviewing commissioned research. Buyer and author lock a 4-to-6-criterion rubric, permitted GitHub repo roots, and whether each criterion requires established facts (fact_required) or allows a structured 4-field unknown disclosure (target_aspect, examined_sources, unverified_reason, risk_boundary). Execution uses two transactions: verify_evidence locks raw GitHub bytes into an immutable snapshot, and evaluate runs leader/validator consensus with zero source HTTP. Deployed on public Bradbury Phase 2 testnet (chainId 4221) at 0x10d41bf2e9b54440ced622171ceff191754bcf73 (v6-wallet-4), all 51/51 prelocked cases (40 RETURN + 11 ERROR, 9 orders) finalized with accepted MAJORITY_AGREE consensus. Earlier v1-v5, v6-wallet-2 revert, and v6-wallet-3 (46/51) attempts are retained in docs/evidence. Testnet only; not mainnet, production-ready, universal model accuracy, or external audit.",
+  "description_chars": 995,
+  "steps": [
+    {
+      "title": "Inspect the default English walkthrough and switch EN / ZH",
+      "instructions": "Open https://glieser2.github.io/research-receipt/. The app loads in English by default (with an EN / ZH toggle in the top bar). In Demo Walkthrough mode, inspect Revision v1 (NOT_ACCEPTED due to a contradicted 24-hour withdrawal delay claim) and Revision v2 (ACCEPTED after correcting the source-bound claim), then click Export JSON Receipt."
+    },
+    {
+      "title": "Read finalized Bradbury Phase 2 testnet (chainId 4221) v6-wallet-4 orders",
+      "instructions": "Switch to Live Testnet mode (default preset: Bradbury Phase 2 public testnet, chainId 4221, policy research-receipt/6). Without connecting a wallet, inspect contract 0x10d41bf2e9b54440ced622171ceff191754bcf73 (Order #1 negative->revised positive, Order #2 strict unknown->fact proven, Order #3 hash mismatch->corrected, Order #8 optional source omitted, Order #9 6-criterion evaluation). Click Refresh On-Chain Order to read live finalized state via public RPC."
+    },
+    {
+      "title": "Verify the v6 two-stage snapshot boundary and historical Studio-dev simulator",
+      "instructions": "Review the v6 two-step write boundary (Step 1: Lock Evidence Snapshot via verify_evidence; Step 2: Run Consensus Evaluation via evaluate) and the 51/51 public testnet evidence bundle in docs/evidence/bradbury-v6-wallet-4-e2e.json. Optionally switch the preset to Studio-dev (chainId 61997, contract 0xa73d09fE5f065ECa8d05b3371cDC5E91213319f1), which is a hosted development simulation running historical policy research-receipt/1."
+    }
+  ],
+  "verification": "Expect contract 0x10d41bf2e9b54440ced622171ceff191754bcf73 on public Bradbury Phase 2 testnet (4221) to match deployed source SHA-256 5e4837ee9dba47577c728c732391721e7e7bac45c0d1674084420c271f2476cf (canonical v6_r2_candidate ce2a06360a16e53cfd7d4f94f39c1e81018f65f667e801a874b426cf4e56538f) with 9 finalized orders and 51/51 accepted MAJORITY_AGREE cases (deploy tx 0x1a7dd2f1a54e56108c4d0170a213ffd495184bb6c7d0a37bfb68409d976ecbb5, envelope 0xa84743e494bbe47affbc8d739fd15860ee605a8e05a46016b07d118865c1328a, block 242922). No wallet signature is required for read-only verification.",
+  "verification_chars": 491,
+  "contract": "https://explorer-bradbury.genlayer.com/address/0x10d41bf2e9b54440ced622171ceff191754bcf73",
+  "contract_address_raw": "0x10d41bf2e9b54440ced622171ceff191754bcf73",
+  "contract_studio_simulator_reference": "https://explorer-studio.genlayer.com/address/0xa73d09fE5f065ECa8d05b3371cDC5E91213319f1",
+  "website": "https://glieser2.github.io/research-receipt/",
+  "github_target_after_publication": "https://github.com/glieser2/research-receipt",
+  "evidence_urls_target_after_publication": [
+    "https://github.com/glieser2/research-receipt",
+    "https://github.com/glieser2/research-receipt/blob/main/docs/evidence/bradbury-v6-wallet-4-e2e.json",
+    "https://github.com/glieser2/research-receipt/blob/main/contracts/research_receipt_v6_compact_v3.py",
+    "https://github.com/glieser2/research-receipt/blob/main/docs/validation.md"
+  ],
+  "submitted": false,
+  "human_verification_and_final_submit": "User"
+}
