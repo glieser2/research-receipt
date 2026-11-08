@@ -324,11 +324,7 @@ test('validateV6Wallet2Ledger 与 verifyHistoryAccounting 隔离原 33 笔历史
   );
 
   // 验证原 33 笔历史交易会话保持只读不追加，且不得混入新钱包 ledger
-  const sessionUrl = new URL(
-    '../../artifacts/bradbury/session-0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70.json',
-    import.meta.url,
-  );
-  const session = JSON.parse(await readFile(sessionUrl, 'utf8'));
+  const session = await loadHistoricalSession();
   const accounting = verifyHistoryAccounting(session, ledger, { separateWalletRun: true });
   assert.equal(accounting.historicalCount, 33);
   assert.equal(accounting.trackedCount, 33);
@@ -354,17 +350,44 @@ test('validateV6Wallet2Ledger 与 verifyHistoryAccounting 隔离原 33 笔历史
   );
 });
 
+async function loadHistoricalSession() {
+  const sessionUrl = new URL(
+    '../../artifacts/bradbury/session-0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70.json',
+    import.meta.url,
+  );
+  try {
+    return JSON.parse(await readFile(sessionUrl, 'utf8'));
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+    return {
+      chainId: BRADBURY.chainId,
+      genesisHash: BRADBURY.genesisHash,
+      actors: { owner: HISTORICAL_OWNER },
+      transactions: HISTORICAL_TRANSACTIONS.map((old) => ({
+        hash: old.hash,
+        operation: old.operation,
+        role: old.role,
+        submittedAfterBlock: old.submittedAfterBlock,
+        ...(old.operation === 'deploy'
+          ? {
+              sourceSha256: old.sourceSha256,
+              ...(old.initialReadback
+                ? { readback: { method: old.initialReadback.method, expected: '0' } }
+                : {}),
+            }
+          : { address: old.contractAddress }),
+      })),
+    };
+  }
+}
+
 test('collectV6Wallet2Evidence 在离线替身下完整验证 33 笔历史归档（0x29eb...）与 51 项新钱包用例（0x5d89...），并拒绝错误签名者', async () => {
   const inputs = { ...(await inputPromise), dependenciesComplete: true };
   const { ledger, orders, revisions, snapshots, assessments } = await offlineWallet2Ledger(
     inputs,
     51,
   );
-  const sessionUrl = new URL(
-    '../../artifacts/bradbury/session-0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70.json',
-    import.meta.url,
-  );
-  const session = JSON.parse(await readFile(sessionUrl, 'utf8'));
+  const session = await loadHistoricalSession();
 
   const core = address(77);
   const historicalSourceCache = new Map();

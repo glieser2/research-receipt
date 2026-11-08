@@ -135,7 +135,7 @@ test('all 51 prelocked case readbacks replay locally, including 11 full raw roll
 });
 
 test('complete collector accepts only all 51 verified doubles plus 33 separately retained historical records',async()=>{
-  const inputs=await inputPromise,ledger=await offlineLedger(inputs),core=address(50),raws=new Map(),envelopes=new Map(),receipts=new Map(),inclusions=new Map();
+  const inputs={...(await inputPromise),dependenciesComplete:true},ledger=await offlineLedger(inputs),core=address(50),raws=new Map(),envelopes=new Map(),receipts=new Map(),inclusions=new Map();
   const eventAbi=[{type:'event',name:'NewTransaction',inputs:[{name:'txId',type:'bytes32',indexed:true},{name:'recipient',type:'address',indexed:true},{name:'activator',type:'address',indexed:true}]}];
   const track=[];
   async function add(attempt,raw,index,blockNumber) {

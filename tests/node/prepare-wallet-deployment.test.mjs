@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFile, rm, writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
 import test from 'node:test';
 import { PROJECT_ROOT } from '../../scripts/bradbury-client.mjs';
 import { sha256 } from '../../scripts/bradbury-gas-aware-session.mjs';
@@ -38,6 +38,7 @@ test('walletPlanFile 与 readWalletPlanBytes 强制项目内相对路径、拒�
 
   const dotDotName = 'artifacts/..temp-wallet-plan-check.json';
   const dotDotAbs = resolve(PROJECT_ROOT, dotDotName);
+  await mkdir(dirname(dotDotAbs), { recursive: true });
   await writeFile(dotDotAbs, '{"ok":true}\n', 'utf8');
   try {
     const resolved = await walletPlanFile(dotDotName);

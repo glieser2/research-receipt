@@ -1,7 +1,7 @@
 {
   "prepared_date_beijing": "2026-11-08",
   "application_date": "2026/11/08",
-  "publication_status": "pre_publication_draft_pending_github_push_and_site_sync",
+  "publication_status": "published_github_and_pages_ready_for_human_verification",
   "category": "Projects",
   "name": "ResearchReceipt",
   "primary_tag_options": [
@@ -23,7 +23,7 @@
   "steps": [
     {
       "title": "Inspect the default English walkthrough and switch EN / ZH",
-      "instructions": "Open https://research-receipt-lab.milkyhoop.chatgpt.site/. The app loads in English by default (with an EN / ZH toggle in the top bar). In Demo Walkthrough mode, inspect Revision v1 (NOT_ACCEPTED due to a contradicted 24-hour withdrawal delay claim) and Revision v2 (ACCEPTED after correcting the source-bound claim), then click Export JSON Receipt."
+      "instructions": "Open https://glieser2.github.io/research-receipt/. The app loads in English by default (with an EN / ZH toggle in the top bar). In Demo Walkthrough mode, inspect Revision v1 (NOT_ACCEPTED due to a contradicted 24-hour withdrawal delay claim) and Revision v2 (ACCEPTED after correcting the source-bound claim), then click Export JSON Receipt."
     },
     {
       "title": "Read finalized Bradbury Phase 2 testnet (chainId 4221) v6-wallet-4 orders",
@@ -39,7 +39,7 @@
   "contract": "https://explorer-bradbury.genlayer.com/address/0x10d41bf2e9b54440ced622171ceff191754bcf73",
   "contract_address_raw": "0x10d41bf2e9b54440ced622171ceff191754bcf73",
   "contract_studio_simulator_reference": "https://explorer-studio.genlayer.com/address/0xa73d09fE5f065ECa8d05b3371cDC5E91213319f1",
-  "website": "https://research-receipt-lab.milkyhoop.chatgpt.site/",
+  "website": "https://glieser2.github.io/research-receipt/",
   "github_target_after_publication": "https://github.com/glieser2/research-receipt",
   "evidence_urls_target_after_publication": [
     "https://github.com/glieser2/research-receipt",

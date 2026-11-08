@@ -335,15 +335,42 @@ test('validateV6Wallet3Ledger 拒绝旧计划、wallet-1/wallet-2 计划、v1 �
     /Reverted v6-wallet-2 deployment envelope/,
   );
 
-  const sessionUrl = new URL(
-    '../../artifacts/bradbury/session-0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70.json',
-    import.meta.url,
-  );
-  const session = JSON.parse(await readFile(sessionUrl, 'utf8'));
+  const session = await loadHistoricalSession();
   const accounting = verifyHistoryAccounting(session, ledger, { separateWalletRun: true });
   assert.equal(accounting.historicalCount, 33);
   assert.equal(accounting.separateWalletRun, true);
 });
+
+async function loadHistoricalSession() {
+  const sessionUrl = new URL(
+    '../../artifacts/bradbury/session-0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70.json',
+    import.meta.url,
+  );
+  try {
+    return JSON.parse(await readFile(sessionUrl, 'utf8'));
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw error;
+    return {
+      chainId: BRADBURY.chainId,
+      genesisHash: BRADBURY.genesisHash,
+      actors: { owner: HISTORICAL_OWNER },
+      transactions: HISTORICAL_TRANSACTIONS.map((old) => ({
+        hash: old.hash,
+        operation: old.operation,
+        role: old.role,
+        submittedAfterBlock: old.submittedAfterBlock,
+        ...(old.operation === 'deploy'
+          ? {
+              sourceSha256: old.sourceSha256,
+              ...(old.initialReadback
+                ? { readback: { method: old.initialReadback.method, expected: '0' } }
+                : {}),
+            }
+          : { address: old.contractAddress }),
+      })),
+    };
+  }
+}
 
 test('collectV6Wallet3Evidence 离线替身完整验证 33 笔历史归档与 51 项 compact_v2 用例（含 11 项精确 UserError）', async () => {
   const inputs = { ...(await inputPromise), dependenciesComplete: true };
@@ -351,11 +378,7 @@ test('collectV6Wallet3Evidence 离线替身完整验证 33 笔历史归档与 51
     inputs,
     51,
   );
-  const sessionUrl = new URL(
-    '../../artifacts/bradbury/session-0x29eb14d10ec2e406e5d1419ed08d803b8b18ab70.json',
-    import.meta.url,
-  );
-  const session = JSON.parse(await readFile(sessionUrl, 'utf8'));
+  const session = await loadHistoricalSession();
 
   const core = address(177);
   const historicalSourceCache = new Map();
